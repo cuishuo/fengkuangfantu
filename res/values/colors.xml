@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- custom travel app begin-->
+    <color name="white_bg">#ffffff</color>
+    <color name="grey_bg">#f6f6f6</color>
+    
+    <!-- 暗灰色 -->
+    <color name="dimgrey">#696969</color>
+    <!-- 天蓝色 -->
+    <color name="gray">#808080</color>
+    <!-- 雪白色 -->
+    <color name="floralwhite">#FFFAF0</color>
+    
+    <color name="whitetext">#ffffff</color>
+    <color name="blacktext">#333333</color>
+    <color name="darktext">#666666</color>
+    <color name="blackdarktext">#828282</color>
+    <color name="greytext">#828282</color>
+    <color name="greendarktext">#4ACCA6</color>
+    <color name="greenlighttext">#90ee90</color>
+    
+    <color name="line_split0">#cdcdcd</color>
+    <color name="line_split_details">#efefef</color>
+    
+    <color name="setting_backgroup">#F5FAF9</color>
+    <color name="check_color">#EEEEEE</color>
+    <color name="option_backgroup">#F6F6F4</color>
+    
+    <color name="translucent_background">#60000000</color> 
+	<color name="item_action_bg">#90000000</color>    
+    <!-- custom travel app end-->
+    <color name="transparent">#00000000</color>
+    <color name="main_transparent">#cc131313</color>
+    <color name="map_transparent">#66000000</color>
+    <color name="transparent_main">#88000000</color>
+    <color name="transparent_main_trip">#99000000</color>
+    <color name="transparent_bac">#e6ffffff</color>
+    <color name="transparent_white">#ccffffff</color>
+    <color name="transparent_white_half">#88ffffff</color>
+    <color name="transparent_trip_add">#9a000000</color>
+
+    <color name="default_bg">#ffededed</color>
+    <color name="white">#FFFFFF</color> 
+    <color name="white_transparent">#4cFFFFFF</color> 
+    <color name="black">#000000</color> 
+    <color name="green">#99cc00</color> 
+    <color name="red">#FF6666</color> 
+    <color name="yellow">#FFE890</color> 
+    <color name="orange">#FF7F24</color>
+    <color name="trans">#00000000</color> 
+    <color name="blue">#0000ff</color> 
+    <color name="alphaBlack">#01010101</color> 
+    <color name="brown">#a52a2a</color> 
+    <color name="gray1">#3c3c3c</color> 
+    <color name="gray2">#4D4D4D</color> 
+    <color name="gray3">#8C8C8C</color> 
+    <color name="gray4">#D9D9D9</color> 
+    <color name="gray5">#E5E5E5</color> 
+    <color name="gray6">#C8C8C8</color> 
+    <color name="graylight">#CCCCCC</color> 
+    <color name="burlywood">#DEB887</color> 
+    <color name="goldenrod">#DAA520</color> 
+    <color name="eggshell">#FCE6C9</color> 
+    <color name="feed_grey_bg">#ffededed</color>
+    <color name="grey">#ff999999</color>
+    <color name="blue_name">#ff0483d0</color>
+    <color name="red_name">#ff6666</color>
+    <color name="black_name">#828282</color>
+    <color name="black1_name">#080808</color>
+    <color name="green_number">#ff63ad4c</color>
+    <color name="feed_bottom_gray_text">#ff8a8a8a</color>
+    <color name="star_detail_tag">#aaaaaa</color>
+    <color name="feed_bottom_gray_text_2">#ff4b5a71</color>
+    <color name="darker_gray">#ffaaaaaa</color>
+    <color name="user_text_color">#1874CD</color>
+    <color name="rt_comment_color">#4b919e</color>
+    <color name="item_color">#ff7d899d</color>
+    <color name="default_gray">#f2f2f2</color>
+    
+    <color name="hotel_gray_bac">#88646464</color>
+    <color name="hotel_gray">#646464</color>
+    <color name="mainbackground">#88080808</color><color name="list_search_header">#e6e6e6</color>
+    <color name="detail_gray1">#686868</color>
+    <color name="detail_gray3">#a0a0a0</color>
+    <color name="hotel_top_bar">#3ad2a2</color>
+    <color name="user_add_trip_places_next">#cc3ad2a2</color>
+    <color name="detail_hotel_top_bar">#003ad2a2</color>
+    <color name="greybutton">#7d7d7d</color>
+    <color name="grey_button">#EBEBEB</color>
+    <color name="hotel_top_bar1">#4ACCA6</color>
+    <color name="mine_gray">#dcdcdc</color>
+    <color name="mine_check_gray">#a3a3a3</color>
+    <color name="mine_check_gray1">#828282</color>
+    <color name="mine_grid_gray">#F4F4F4</color>
+    <color name="setting_black">#505050</color>
+    <color name="setting_divider1">#dadada</color>
+    <color name="setting_divider">#a2a2a2</color>
+    <color name="review_divider">#c9c9c9</color>
+    <color name="detail_koubei">#FFEFD5</color>
+    <color name="setting_divider_trans">#88dadada</color>
+    <color name="detail_black1">#080808</color>
+    <color name="detail_black">#535353</color>
+    <color name="detail_gray">#efefef</color>
+    <color name="detail_gray2">#DDDDDD</color>
+    <color name="greentext">#4acca6</color>
+    <color name="main_more_text">#4acc6a</color>
+    <color name="main_backgroung">#33000000</color>
+    <color name="main_backgroung_light">#55000000</color>
+    <color name="detail_back">#f5f5f5</color>
+    <color name="navigation_divider">#55dadada</color>
+    <color name="title">#434343</color>
+    <color name="title_tras">#9a434343</color>
+    <color name="review_score">#535353</color>
+    <color name="review_name">#959595</color>
+    <color name="navigation_mine">#dcdcdc</color>
+    <color name="navigation_backgroung">#f6000000</color>
+    <color name="country_divider">#d2d2d2</color>
+    <color name="list_review">#707070</color>
+    <color name="list_map">#6e6e6e</color>
+    <color name="detail_bac">#Ed1d1d1d</color>
+    <color name="search_title">#1b1b1b</color>
+    <color name="detail_more">#989898</color>
+    <color name="detail_label">#687b7c</color>
+    <color name="setting_info">#686868</color>
+    <color name="setting_info_more">#989898</color>
+    <color name="recomend_divider">#2a2a2a</color>
+    <color name="search_hint">#c0c0c0</color>
+    <color name="about_us_title">#687b7c</color>
+    <color name="review_back">#88f5f5f5</color>
+    <color name="trip_search_back">#e6f5f5f5</color>
+    <color name="rental_title">#434343</color>
+    <color name="rental_score">#313131</color>
+    <color name="hotel_top_bar_map">#e6ffffff</color>
+    <color name="main_map_search">#c0c0c0</color>
+    <color name="detail_map_title">#626262</color>
+    <color name="register_hint">#A5A5A5</color>
+    <color name="detail_score">#898989</color>
+    <color name="detail_rental_price">#eeeeee</color>
+    <color name="detail_rental_price_divider">#d3d3d3</color>
+    <color name="detail_service_list">#9f9f9f</color>
+    <color name="collect_label_back">#687b7c</color>
+    <color name="rental_company_background">#f4f4f4</color>
+    <color name="rental_company_background_trans">#22000000</color>
+    <color name="rental_company_progress">#ffb033</color>
+    <color name="rental_company_status_progress">#52b0f8</color>
+    <color name="log_out_back">#f3f5f5f5</color>
+    <color name="log_out_divider">#bfbfbf</color>
+    <color name="trip_num_color">#0d4b83</color>
+    <color name="place_recommend_text">#bababa</color>
+    <color name="setting_comment_text">#282828</color>
+    <color name="user_trip_add_place_text">#898a89</color>
+    <color name="user_add_trip_youhua">#ee3ad2a2</color>
+    <color name="user_add_trip_youhua_bian">#19c391</color>
+    <color name="rate_letter_color">#777777</color>
+    <color name="hotel_detail_progress_color">#ffbf63</color>
+    <color name="user_trip_content">#747474</color>
+</resources>
