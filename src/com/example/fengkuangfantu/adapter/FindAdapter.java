@@ -77,7 +77,6 @@ public class FindAdapter extends BaseAdapter {
 //		this.findist.clear();
 //		this.findist.addAll(dataList);
 		this.findist = dataList;
-		this.isFirst = isFirst;
 	}
 	
 	public ArrayList<FindEntity> getDataSource(){
@@ -123,13 +122,16 @@ public class FindAdapter extends BaseAdapter {
 		// TODO Auto-generated method stub
 		holder = new ViewHolder();		
 		if (convertView == null) {
-			convertView = LayoutInflater.from(context).inflate(R.layout.find_grid_item, null);			
-		} 
+			convertView = LayoutInflater.from(context).inflate(R.layout.find_grid_item, null);	
+			convertView.setTag(holder);
+		} else {
+			holder = (ViewHolder) convertView.getTag();
+		}
 		holder.coverImageView = (ImageView)convertView.findViewById(R.id.coverImageView);
 		holder.defaultImageView = (ImageView)convertView.findViewById(R.id.defaultImageView);
 		holder.coverFramlayout = (FrameLayout)convertView.findViewById(R.id.coverFramlayout);
 		holder.contentRelativeLayout = (RelativeLayout) convertView.findViewById(R.id.contentRelativeLayout);
-		convertView.setTag(position);
+//		convertView.setTag(position);
 		final FindEntity entity = findist.get(position);		
 		String nameString = entity.getName();
 //		holder.nameTextView.setText(nameString);
@@ -160,11 +162,14 @@ public class FindAdapter extends BaseAdapter {
 		if (isShow) {
 			if (position == parent.getChildCount()) {
 				if (isFirst) {
+//					Log.d("xiaoding","position ..jjjjjj.. ="+position);
 					showImage(isImageShow);
-					isFirst = !isFirst;
 				} else {
 					if (position == clickPosition) {
-						showImage(isImageShow);
+//						Log.d("xiaoding","position .... ="+position);
+						if (!isImageShow) {
+							showImage(isImageShow);
+						}						
 					}
 				}								
 			}
@@ -195,6 +200,7 @@ public class FindAdapter extends BaseAdapter {
 	}
 	
 	private void showImage(boolean isImageShow) {
+//		Log.d("xiaoding","clickPosition ..ddd.. ="+clickPosition);
 		holder.coverFramlayout.setVisibility(View.INVISIBLE);
 		holder.defaultImageView.setVisibility(View.INVISIBLE);
 		holder.coverFramlayout.setAnimationCacheEnabled(true);
@@ -205,6 +211,7 @@ public class FindAdapter extends BaseAdapter {
 	}
 	
 	private void showDefault(boolean isImageShow) {
+//		Log.d("xiaoding","clickPosition ..fff.. ="+clickPosition);
 		holder.defaultImageView.setVisibility(View.INVISIBLE);
 		holder.coverFramlayout.setVisibility(View.INVISIBLE);
 		holder.coverFramlayout.setAnimationCacheEnabled(true);
@@ -219,9 +226,10 @@ public class FindAdapter extends BaseAdapter {
 		final float centerY = 240 / 2.0f;
 		final Flip3dAnimation rotation = new Flip3dAnimation(start, end,
 				centerX, centerY);
-		rotation.setDuration(500);
+		rotation.setDuration(300);
 		rotation.setFillAfter(true);
 		rotation.setInterpolator(new AccelerateInterpolator());
+		Log.d("xiaoding","holder.defaultImageView ..fff.. ="+holder.defaultImageView);
 		rotation.setAnimationListener(new DisplayNextView(!isImageShow, holder.defaultImageView, holder.coverFramlayout));
 
 		if (!isImageShow) {

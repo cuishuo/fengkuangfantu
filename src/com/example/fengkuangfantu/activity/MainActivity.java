@@ -87,6 +87,7 @@ public class MainActivity extends BaseActivity {
 							findist.get(i).setIsImageShow(true);
 						}
 						findAdapter.setShow(false);
+						findAdapter.setIsFirst(false);
 						findAdapter.notifyDataSetChanged();
 					}
 				}, 2000);
@@ -99,6 +100,9 @@ public class MainActivity extends BaseActivity {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
+//				if (turnImageTextView.get) {
+//					
+//				}
 				findAdapter.setShow(true);
 				findist.get(position).setIsImageShow(false);
 				findAdapter.setClickPosition(position);
