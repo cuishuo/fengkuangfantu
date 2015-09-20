@@ -123,10 +123,11 @@ public class FindAdapter extends BaseAdapter {
 		holder = new ViewHolder();		
 		if (convertView == null) {
 			convertView = LayoutInflater.from(context).inflate(R.layout.find_grid_item, null);	
-			convertView.setTag(holder);
-		} else {
-			holder = (ViewHolder) convertView.getTag();
-		}
+//			convertView.setTag(holder);
+		} 
+//		else {
+//			holder = (ViewHolder) convertView.getTag();
+//		}
 		holder.coverImageView = (ImageView)convertView.findViewById(R.id.coverImageView);
 		holder.defaultImageView = (ImageView)convertView.findViewById(R.id.defaultImageView);
 		holder.coverFramlayout = (FrameLayout)convertView.findViewById(R.id.coverFramlayout);
@@ -163,13 +164,18 @@ public class FindAdapter extends BaseAdapter {
 			if (position == parent.getChildCount()) {
 				if (isFirst) {
 //					Log.d("xiaoding","position ..jjjjjj.. ="+position);
-					showImage(isImageShow);
+//					if (position == parent.getChildCount()) {
+						showImage(isImageShow);
+//					}
+					
 				} else {
 					if (position == clickPosition) {
 //						Log.d("xiaoding","position .... ="+position);
 						if (!isImageShow) {
 							showImage(isImageShow);
-						}						
+						}	
+//						holder.coverFramlayout.setVisibility(View.VISIBLE);
+//						holder.defaultImageView.setVisibility(View.INVISIBLE);
 					}
 				}								
 			}
@@ -179,11 +185,16 @@ public class FindAdapter extends BaseAdapter {
 					showDefault(isImageShow);
 				}
 			}
-		}		
+		}	
+		
+		
 		
 //		if (position == clickPosition) {
 ////			isImageShow = false;
-//			showImage(isImageShow);
+////			if (position == parent.getChildCount()) {
+//				showImage(isImageShow);
+////			}
+//			
 //		}
 		
 //		holder.defaultImageView.setOnClickListener(new OnClickListener() {
@@ -191,12 +202,16 @@ public class FindAdapter extends BaseAdapter {
 //			@Override
 //			public void onClick(View v) {
 //				// TODO Auto-generated method stub
-//				isImageShow = false;
-//				showImage();
+//				
 ////				notifyDataSetChanged();
 //			}
 //		});
 		return convertView;
+	}
+	
+	private void show(boolean isImageShow) {
+		holder.coverFramlayout.setVisibility(View.VISIBLE);
+		holder.defaultImageView.setVisibility(View.INVISIBLE);
 	}
 	
 	private void showImage(boolean isImageShow) {

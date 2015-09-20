@@ -3,5 +3,7 @@
     <string name="app_name">疯狂翻图 </string>
     
     <string name="turn_image_text">翻转图片</string>
+    <string name="turn_image_first">请您先翻转图片，然后再开始游戏</string>
+    <string name="turn_image_sucess">恭喜您成功过关</string>
 
 </resources>
