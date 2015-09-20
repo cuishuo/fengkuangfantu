@@ -1,0 +1,11 @@
+*~
+*.bak
+.classpath
+.project
+*/project.properties
+*/bin/
+*/gen/
+*/.settings/
+bin/
+gen/
+project.properties
