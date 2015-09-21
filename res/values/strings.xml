@@ -8,5 +8,9 @@
     <string name="turn_image_first">请您先翻转图片，然后再开始游戏</string>
     <string name="turn_image_sucess">恭喜您成功过关</string>
     <string name="turn_image_fail">Game Over!</string>
+    <string name="turn_image_text1">疯</string>
+    <string name="turn_image_text2">狂</string>
+    <string name="turn_image_text3">翻</string>
+    <string name="turn_image_text4">图</string>
 
 </resources>
