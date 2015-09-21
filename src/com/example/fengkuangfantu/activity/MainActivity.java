@@ -6,6 +6,8 @@ import android.R.integer;
 import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,6 +17,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -29,6 +32,7 @@ import com.example.fengkuangfantu.utils.ToastUtil;
 public class MainActivity extends BaseActivity {
 	
 	private boolean isTurn = false;
+	private boolean isTurning = false;
 	private int random = 0;
 	private int number = 4;
 	private int lastPostion = -1;
@@ -42,18 +46,26 @@ public class MainActivity extends BaseActivity {
 	private GridView findGridView;
 	private ImageView lastDefaultImageView;
 	private ImageView defaultImageView;
+	private ProgressBar findProgressBar;
 	private RelativeLayout processRelativeLayout;
+	private Runnable timerRunnable;
 	private String[] imageCover1;
 	private String lastImageName = "";
 	private TextView turnImageTextView;
+	private TextView turnNextTextView;
+	private final int TOTAL_INTERVAL = 100;
+	private final int RETRY_INTERVAL = 100;
+	private int time = RETRY_INTERVAL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findGridView = (GridView) findViewById(R.id.findGridView);
+        findProgressBar = (ProgressBar) findViewById(R.id.findProgressBar);
         processRelativeLayout = (RelativeLayout) findViewById(R.id.processRelativeLayout);
         turnImageTextView = (TextView) findViewById(R.id.turnImageTextView);
+        turnNextTextView = (TextView) findViewById(R.id.turnNextTextView);
         findist = new ArrayList<FindEntity>();
         numberList = new ArrayList<Integer>();
         initViews();
@@ -104,7 +116,6 @@ public class MainActivity extends BaseActivity {
 					@Override
 					public void run() {
 						// TODO Auto-generated method stub
-//						findAdapter.setShowImage(true);
 						for (int i = 0; i < findist.size(); i++) {
 							findist.get(i).setIsImageShow(true);
 						}
@@ -113,6 +124,7 @@ public class MainActivity extends BaseActivity {
 						findAdapter.notifyDataSetChanged();
 						processRelativeLayout.setVisibility(View.VISIBLE);
 						turnImageTextView.setVisibility(View.GONE);
+						countDown();
 					}
 				}, 2000);
 			}
@@ -129,7 +141,13 @@ public class MainActivity extends BaseActivity {
 					ToastUtil.threadShow(MainActivity.this, mHandler, R.string.turn_image_first);
 					return;
 				}
+				if (isTurning) {
+					return;
+				}
 				FindEntity entity = findist.get(position);	
+				if (!entity.getIsImageShow()) {
+					return;
+				}
 				String nameString = entity.getCover();
 				coverFramlayout = (FrameLayout) view.findViewById(R.id.coverFramlayout);
 				defaultImageView = (ImageView) view.findViewById(R.id.defaultImageView);
@@ -140,7 +158,9 @@ public class MainActivity extends BaseActivity {
 					lastImageName = nameString;
 					lastCoverFramlayout = coverFramlayout;
 					lastDefaultImageView = defaultImageView;
+					entity.setIsImageShow(false);					
 				} else if (clickCount == 2) {
+					isTurning = true;
 					if (!lastImageName.isEmpty() && !lastImageName.equals(nameString)) {
 						mHandler.postDelayed(new Runnable() {
 							
@@ -149,12 +169,19 @@ public class MainActivity extends BaseActivity {
 								// TODO Auto-generated method stub
 								showDefault(lastCoverFramlayout, lastDefaultImageView, true);
 								showDefault(coverFramlayout, defaultImageView, true);
+								findist.get(lastPostion).setIsImageShow(true);
+								isTurning = false;
 							}
-						}, 1000);						
+						}, 400);						
 					} else {
 						totalCount += 2;
+						entity.setIsImageShow(false);
+						isTurning = false;
 						if (totalCount == findist.size()) {
 							ToastUtil.threadShow(MainActivity.this, mHandler, R.string.turn_image_sucess);
+							mHandler.removeCallbacks(timerRunnable);
+							turnNextTextView.setVisibility(View.VISIBLE);
+							processRelativeLayout.setVisibility(View.GONE);
 						}
 					}
 					clickCount = 0;
@@ -188,7 +215,7 @@ public class MainActivity extends BaseActivity {
 		final float centerY = 240 / 2.0f;
 		final Flip3dAnimation rotation = new Flip3dAnimation(start, end,
 				centerX, centerY);
-		rotation.setDuration(300);
+		rotation.setDuration(200);
 		rotation.setFillAfter(true);
 		rotation.setInterpolator(new AccelerateInterpolator());
 		rotation.setAnimationListener(new DisplayNextView(!isImageShow, defaultImageView, coverFramlayout));
@@ -198,5 +225,37 @@ public class MainActivity extends BaseActivity {
 		} else {
 			coverFramlayout.startAnimation(rotation);
 		}
+	}
+	
+	private void countDown() {
+		timerRunnable = new Runnable() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				time--;
+				if (time == 0) {
+					findProgressBar.setProgress(time);
+					ToastUtil.threadShow(MainActivity.this, mHandler, R.string.turn_image_fail);
+					time = RETRY_INTERVAL;
+					turnImageTextView.setText(getResources().getString(R.string.turn_image_retry));
+					turnImageTextView.setVisibility(View.VISIBLE);
+					processRelativeLayout.setVisibility(View.GONE);
+					turnImageTextView.setTextColor(Color.parseColor("#3ad2a2"));
+					turnImageTextView.setClickable(true);
+					totalCount = 0;
+					isTurn = false;
+					for (int i = 0; i < findist.size(); i++) {
+						findist.get(i).setIsImageShow(false);
+					}
+					findAdapter = new FindAdapter(getApplicationContext(), mHandler, findist, findGridView, true);
+			    	findGridView.setAdapter(findAdapter);
+				} else {
+					findProgressBar.setProgress(time);
+					mHandler.postDelayed(this, TOTAL_INTERVAL);
+				}
+			}
+		};
+		mHandler.postDelayed(timerRunnable, TOTAL_INTERVAL);
 	}
 }

@@ -123,60 +123,24 @@ public class FindAdapter extends BaseAdapter {
 		holder = new ViewHolder();		
 		if (convertView == null) {
 			convertView = LayoutInflater.from(context).inflate(R.layout.find_grid_item, null);	
-//			convertView.setTag(holder);
-		} 
-//		else {
-//			holder = (ViewHolder) convertView.getTag();
-//		}
+			convertView.setTag(holder);
+		} else {
+			holder = (ViewHolder) convertView.getTag();
+		}
 		holder.coverImageView = (ImageView)convertView.findViewById(R.id.coverImageView);
 		holder.defaultImageView = (ImageView)convertView.findViewById(R.id.defaultImageView);
 		holder.coverFramlayout = (FrameLayout)convertView.findViewById(R.id.coverFramlayout);
 		holder.contentRelativeLayout = (RelativeLayout) convertView.findViewById(R.id.contentRelativeLayout);
-//		convertView.setTag(position);
 		final FindEntity entity = findist.get(position);		
-		String nameString = entity.getName();
-//		holder.nameTextView.setText(nameString);
 		String imageUrl = entity.getCover();
 		ApplicationInfo appInfo = context.getApplicationInfo();
 		int resID = context.getResources().getIdentifier(imageUrl, "drawable", appInfo.packageName);
 		holder.coverImageView.setImageResource(resID);
 		boolean isImageShow = entity.getIsImageShow();
-//		if (position == check) {
-//			holder.coverRelativeLayout.setBackgroundResource(R.drawable.dna_xiangkuang_press);
-//		} else {
-//			holder.coverRelativeLayout.setBackgroundResource(R.drawable.dna_xiangkuang);
-//		}
-//		if (isFirst) {
-//			animation = AnimationUtils.loadAnimation(context, R.anim.xuanzhuan);//suo fang
-//			holder.contentRelativeLayout.startAnimation(animation);
-//			animation.setFillAfter(true);
-//		} else {
-//			if (animation != null) {				
-//				holder.contentRelativeLayout.clearAnimation();
-//				animation.cancel();
-//				animation = null;
-//			}
-//		}	
-//		animation = AnimationUtils.loadAnimation(context, R.anim.xuanzhuan);//suo fang
-//		holder.contentRelativeLayout.startAnimation(animation);
-//		animation.setFillAfter(true);
 		if (isShow) {
 			if (position == parent.getChildCount()) {
 				if (isFirst) {
-//					Log.d("xiaoding","position ..jjjjjj.. ="+position);
-//					if (position == parent.getChildCount()) {
-						showImage(isImageShow);
-//					}
-					
-				} else {
-					if (position == clickPosition) {
-//						Log.d("xiaoding","position .... ="+position);
-						if (!isImageShow) {
-							showImage(isImageShow);
-						}	
-//						holder.coverFramlayout.setVisibility(View.VISIBLE);
-//						holder.defaultImageView.setVisibility(View.INVISIBLE);
-					}
+					showImage(isImageShow);
 				}								
 			}
 		} else {
@@ -186,36 +150,10 @@ public class FindAdapter extends BaseAdapter {
 				}
 			}
 		}	
-		
-		
-		
-//		if (position == clickPosition) {
-////			isImageShow = false;
-////			if (position == parent.getChildCount()) {
-//				showImage(isImageShow);
-////			}
-//			
-//		}
-		
-//		holder.defaultImageView.setOnClickListener(new OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				// TODO Auto-generated method stub
-//				
-////				notifyDataSetChanged();
-//			}
-//		});
 		return convertView;
 	}
 	
-	private void show(boolean isImageShow) {
-		holder.coverFramlayout.setVisibility(View.VISIBLE);
-		holder.defaultImageView.setVisibility(View.INVISIBLE);
-	}
-	
 	private void showImage(boolean isImageShow) {
-//		Log.d("xiaoding","clickPosition ..ddd.. ="+clickPosition);
 		holder.coverFramlayout.setVisibility(View.INVISIBLE);
 		holder.defaultImageView.setVisibility(View.INVISIBLE);
 		holder.coverFramlayout.setAnimationCacheEnabled(true);
@@ -226,7 +164,6 @@ public class FindAdapter extends BaseAdapter {
 	}
 	
 	private void showDefault(boolean isImageShow) {
-//		Log.d("xiaoding","clickPosition ..fff.. ="+clickPosition);
 		holder.defaultImageView.setVisibility(View.INVISIBLE);
 		holder.coverFramlayout.setVisibility(View.INVISIBLE);
 		holder.coverFramlayout.setAnimationCacheEnabled(true);
@@ -244,14 +181,12 @@ public class FindAdapter extends BaseAdapter {
 		rotation.setDuration(300);
 		rotation.setFillAfter(true);
 		rotation.setInterpolator(new AccelerateInterpolator());
-		Log.d("xiaoding","holder.defaultImageView ..fff.. ="+holder.defaultImageView);
 		rotation.setAnimationListener(new DisplayNextView(!isImageShow, holder.defaultImageView, holder.coverFramlayout));
 
 		if (!isImageShow) {
 			holder.defaultImageView.startAnimation(rotation);
 		} else {
 			holder.coverFramlayout.startAnimation(rotation);
-//			isImageShow = !isImageShow;
 		}
 	}
 	
