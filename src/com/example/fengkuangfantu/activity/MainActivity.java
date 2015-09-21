@@ -15,6 +15,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.fengkuangfantu.R;
@@ -41,6 +42,7 @@ public class MainActivity extends BaseActivity {
 	private GridView findGridView;
 	private ImageView lastDefaultImageView;
 	private ImageView defaultImageView;
+	private RelativeLayout processRelativeLayout;
 	private String[] imageCover1;
 	private String lastImageName = "";
 	private TextView turnImageTextView;
@@ -50,6 +52,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findGridView = (GridView) findViewById(R.id.findGridView);
+        processRelativeLayout = (RelativeLayout) findViewById(R.id.processRelativeLayout);
         turnImageTextView = (TextView) findViewById(R.id.turnImageTextView);
         findist = new ArrayList<FindEntity>();
         numberList = new ArrayList<Integer>();
@@ -108,6 +111,8 @@ public class MainActivity extends BaseActivity {
 						findAdapter.setShow(false);
 						findAdapter.setIsFirst(false);
 						findAdapter.notifyDataSetChanged();
+						processRelativeLayout.setVisibility(View.VISIBLE);
+						turnImageTextView.setVisibility(View.GONE);
 					}
 				}, 2000);
 			}

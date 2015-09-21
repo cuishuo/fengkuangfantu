@@ -29,5 +29,26 @@
         android:text="@string/turn_image_text"
         android:textColor="@color/hotel_top_bar"
         android:textSize="14sp" />
+    
+    <RelativeLayout
+        android:id="@+id/processRelativeLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/progress_bar_background"
+        android:visibility="gone" >
+
+        <ProgressBar
+            android:id="@+id/findProgressBar"
+            style="@style/progressBar_mini"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="0dp"
+            android:visibility="visible" />
+    </RelativeLayout>
 
 </RelativeLayout>
