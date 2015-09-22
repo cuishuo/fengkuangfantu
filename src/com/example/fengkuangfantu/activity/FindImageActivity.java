@@ -69,8 +69,8 @@ public class FindImageActivity extends BaseActivity {
     
     private void initViews() {
     	imageCover1 = getResources().getStringArray(R.array.image_1);
-    	while (numberList.size() < number * 2) {
-    		random = (int)(Math.random() * 4);
+    	while (numberList.size() < number * 3) {
+    		random = (int)(Math.random() * 6);
     		if (numberList.contains(random)) {
     			int count = 0;
     			for (int i = 0; i < numberList.size(); i++) {
