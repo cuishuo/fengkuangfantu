@@ -12,5 +12,6 @@
     <string name="turn_image_text2">狂</string>
     <string name="turn_image_text3">翻</string>
     <string name="turn_image_text4">图</string>
+    <string name="turn_image_main_text">开始游戏</string>
 
 </resources>
