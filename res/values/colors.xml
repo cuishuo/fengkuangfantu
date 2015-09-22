@@ -154,4 +154,6 @@
     <color name="rate_letter_color">#777777</color>
     <color name="hotel_detail_progress_color">#ffbf63</color>
     <color name="user_trip_content">#747474</color>
+    
+    <color name="main_color">#edc3ed</color>
 </resources>
