@@ -2,17 +2,86 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white" >
-    
+    android:background="@drawable/main_bg" >
+
     <TextView
-        android:id="@+id/mainBeginTextView"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_centerInParent="true"
-        android:background="@drawable/find_turn_image_text_background"
+        android:id="@+id/mainTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@color/transparent"
         android:gravity="center"
-        android:text="@string/turn_image_main_text"
+        android:text="@string/app_name"
         android:textColor="@color/hotel_top_bar"
-        android:textSize="14sp" />
+        android:textSize="50sp" />
+
+    <GridView
+        android:id="@+id/mainImageGridView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mainTitleTextView"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="40dp"
+        android:background="#00000000"
+        android:horizontalSpacing="0dp"
+        android:listSelector="#00000000"
+        android:numColumns="3" />
+    
+    <ImageView
+        android:id="@+id/clickImageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="150dp"
+        android:contentDescription="@null"
+        android:background="@color/transparent"
+        android:src="@drawable/main_click"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/buttonRelativeLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/transparent" >
+
+        <ImageButton
+            android:id="@+id/settingImagebutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:background="@color/transparent"
+            android:src="@drawable/main_start"
+            android:contentDescription="@null" />
+
+        <ImageButton
+            android:id="@+id/startImagebutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@color/transparent"
+            android:src="@drawable/main_start"
+            android:contentDescription="@null" />
+
+        <ImageButton
+            android:id="@+id/aboutImagebutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/transparent"
+            android:src="@drawable/main_start"
+            android:contentDescription="@null" />
+    </RelativeLayout>
 
 </RelativeLayout>
