@@ -2,6 +2,7 @@
 *.bak
 .classpath
 .project
+.project.properties
 */project.properties
 */bin/
 */gen/
