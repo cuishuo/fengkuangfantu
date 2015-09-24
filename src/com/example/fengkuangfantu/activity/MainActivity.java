@@ -31,12 +31,12 @@ public class MainActivity extends BaseActivity {
 	private ArrayList<FindEntity> findist;
 	private MainImageAdapter mainImageAdapter;
 	private FrameLayout coverFramlayout;
-	private GridView mainImageGridView;
+//	private GridView mainImageGridView;
 	private ImageButton startImagebutton;
 	private ImageView clickImageView;
 	private ImageView defaultImageView;
 	private Runnable timerRunnable;
-	private TextView mainTitleTextView;
+//	private TextView mainTitleTextView;
 	private final int REPET_INTERVAL = 3000;
 	private final int RETRY_INTERVAL = 50;
 	private int time = RETRY_INTERVAL;
@@ -45,10 +45,10 @@ public class MainActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		mainImageGridView = (GridView) findViewById(R.id.mainImageGridView);
+//		mainImageGridView = (GridView) findViewById(R.id.mainImageGridView);
 		startImagebutton = (ImageButton) findViewById(R.id.startImagebutton);
 		clickImageView = (ImageView) findViewById(R.id.clickImageView);
-		mainTitleTextView = (TextView) findViewById(R.id.mainTitleTextView);
+//		mainTitleTextView = (TextView) findViewById(R.id.mainTitleTextView);
 		findist = new ArrayList<FindEntity>();
 		initViews();
 		initClicks();
@@ -62,9 +62,9 @@ public class MainActivity extends BaseActivity {
 			findEntity.setIsImageShow(false);
 			findist.add(findEntity);
 		}
-		mainImageAdapter = new MainImageAdapter(getApplicationContext(),
-				mHandler, findist, mainImageGridView, true);
-		mainImageGridView.setAdapter(mainImageAdapter);
+//		mainImageAdapter = new MainImageAdapter(getApplicationContext(),
+//				mHandler, findist, mainImageGridView, true);
+//		mainImageGridView.setAdapter(mainImageAdapter);
 	}
 
 	private void initClicks() {
@@ -113,13 +113,13 @@ public class MainActivity extends BaseActivity {
 						@Override
 						public void onAnimationEnd(Animation animation) {
 							// TODO Auto-generated method stub
-							coverFramlayout = (FrameLayout) mainImageGridView
-									.getChildAt(4).findViewById(
-											R.id.coverFramlayout);
-							defaultImageView = (ImageView) mainImageGridView
-									.getChildAt(4).findViewById(
-											R.id.defaultImageView);
-							showImage(coverFramlayout, defaultImageView, false);
+//							coverFramlayout = (FrameLayout) mainImageGridView
+//									.getChildAt(4).findViewById(
+//											R.id.coverFramlayout);
+//							defaultImageView = (ImageView) mainImageGridView
+//									.getChildAt(4).findViewById(
+//											R.id.defaultImageView);
+//							showImage(coverFramlayout, defaultImageView, false);
 							if (animation !=  null) {
 								clickImageView.clearAnimation();
 								animation = null;

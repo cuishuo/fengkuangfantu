@@ -2,22 +2,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_bg" >
+    android:background="@drawable/main_background" >
 
-    <TextView
-        android:id="@+id/mainTitleTextView"
+    <ImageView
+        android:id="@+id/titleImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:background="@color/transparent"
-        android:gravity="center"
-        android:text="@string/app_name"
-        android:textColor="@color/hotel_top_bar"
-        android:textSize="50sp" />
+        android:contentDescription="@null"
+        android:src="@drawable/main_title" />
 
-    <GridView
+    <FrameLayout
+        android:id="@+id/mainFramlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/mainImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="3dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:layout_marginTop="3dp"
+            android:background="@color/transparent"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/main_smail" />
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/defaultImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleImageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@color/transparent"
+        android:contentDescription="@null"
+        android:src="@drawable/main_sad" />
+
+    <!--
+        GridView
         android:id="@+id/mainImageGridView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -28,8 +61,9 @@
         android:background="#00000000"
         android:horizontalSpacing="0dp"
         android:listSelector="#00000000"
-        android:numColumns="3" />
-    
+        android:numColumns="3" /
+    -->
+
     <ImageView
         android:id="@+id/clickImageView"
         android:layout_width="50dp"
@@ -37,15 +71,15 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="150dp"
-        android:contentDescription="@null"
         android:background="@color/transparent"
+        android:contentDescription="@null"
         android:src="@drawable/main_click"
         android:visibility="gone" />
 
     <RelativeLayout
         android:id="@+id/buttonRelativeLayout"
         android:layout_width="fill_parent"
-        android:layout_height="200dp"
+        android:layout_height="150dp"
         android:layout_alignParentBottom="true"
         android:background="@color/transparent" >
 
@@ -54,34 +88,34 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
             android:background="@color/transparent"
-            android:src="@drawable/main_start"
-            android:contentDescription="@null" />
+            android:contentDescription="@null"
+            android:src="@drawable/main_setting" />
 
         <ImageButton
             android:id="@+id/startImagebutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="50dp"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
             android:background="@color/transparent"
-            android:src="@drawable/main_start"
-            android:contentDescription="@null" />
+            android:contentDescription="@null"
+            android:src="@drawable/main_start" />
 
         <ImageButton
             android:id="@+id/aboutImagebutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="10dp"
+            android:layout_alignParentTop="true"
             android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
             android:background="@color/transparent"
-            android:src="@drawable/main_start"
-            android:contentDescription="@null" />
+            android:contentDescription="@null"
+            android:src="@drawable/main_about" />
     </RelativeLayout>
 
 </RelativeLayout>
