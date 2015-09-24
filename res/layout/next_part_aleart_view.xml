@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/returnRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent" >
+
+        <RelativeLayout
+            android:id="@+id/contentRelativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/next_part_dialog_back" >
+
+            <TextView
+                android:id="@+id/titleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginTop="14dp"
+                android:gravity="left"
+                android:text="@string/next_part_aleart_title"
+                android:textColor="@color/setting_comment_text"
+                android:textSize="12sp" />
+
+            <!--TextView
+                android:id="@+id/titleDesTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/titleTextView"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:gravity="left"
+                android:text="@string/setting_comment_title_des"
+                android:textColor="@color/setting_comment_text"
+                android:textSize="11sp" /-->
+
+            <ImageView
+                android:id="@+id/okDividerImageView"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/titleTextView"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="20dp"
+                android:background="@color/log_out_divider"
+                android:contentDescription="@null" />
+
+            <LinearLayout
+                android:id="@+id/bottonLinearLayout"
+                android:layout_width="fill_parent"
+                android:layout_height="52dp"
+                android:layout_below="@id/okDividerImageView"
+                android:layout_marginBottom="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:background="@drawable/detail_add_trip_view_corner"
+                android:baselineAligned="false"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:id="@+id/okRelativeLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1" >
+
+                    <TextView
+                        android:id="@+id/okSetTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="@string/dialog_sure"
+                        android:textColor="@color/hotel_top_bar"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="0.5dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@color/log_out_divider" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/cancelRelativeLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1" >
+
+                    <TextView
+                        android:id="@+id/cancelSetTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="@string/dialog_cancel"
+                        android:textColor="@color/rental_title"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

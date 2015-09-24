@@ -13,5 +13,10 @@
     <string name="turn_image_text3">翻</string>
     <string name="turn_image_text4">图</string>
     <string name="turn_image_main_text">开始游戏</string>
+    <string name="next_part_aleart_title">该部分已完成，下部分更虐哦，你准备好了么？</string>
+    <string name="dialog_sure">确定</string>
+    <string name="dialog_cancel">取消</string>
+    <string name="choose_image_title">请您找出：    </string>
+    <string name="choose_image_all_sucess">恭喜，您已经通关！敬请期待~~</string>
 
 </resources>

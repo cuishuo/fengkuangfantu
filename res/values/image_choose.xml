@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string-array name="image_choose_1">                                            
+        <item>a_1</item>                
+        <item>a_2</item>
+        <item>a_3</item>
+        <item>a_4</item>
+        <item>a_5</item>
+        <item>a_6</item>
+    </string-array>
+    
+    <string-array name="name_choose_1">                                            
+        <item>埃及</item>                
+        <item>香港</item>
+        <item>夏威夷</item>
+        <item>黄山</item>
+        <item>路飞</item>
+        <item>香克斯</item>
+    </string-array>
+    
+    <string-array name="image_choose_2">                                            
+        <item>b_1</item>                
+        <item>b_2</item>
+        <item>b_3</item>
+        <item>b_4</item>
+        <item>b_5</item>
+        <item>b_6</item>
+    </string-array>
+    
+    <string-array name="name_choose_2">                                            
+        <item>埃及</item>                
+        <item>香港</item>
+        <item>夏威夷</item>
+        <item>黄山</item>
+        <item>路飞</item>
+        <item>香克斯</item>
+    </string-array>
+    
+    <string-array name="image_choose_3">                                            
+        <item>a_1</item>                
+        <item>a_2</item>
+        <item>a_3</item>
+        <item>a_4</item>
+        <item>a_5</item>
+        <item>a_6</item>
+    </string-array>
+    
+    <string-array name="name_choose_3">                                            
+        <item>埃及</item>                
+        <item>香港</item>
+        <item>夏威夷</item>
+        <item>黄山</item>
+        <item>路飞</item>
+        <item>香克斯</item>
+    </string-array>
+    
+    <string-array name="image_choose_4">                                            
+        <item>a_1</item>                
+        <item>a_2</item>
+        <item>a_3</item>
+        <item>a_4</item>
+        <item>a_5</item>
+        <item>a_6</item>
+    </string-array>
+    
+    <string-array name="name_choose_4">                                            
+        <item>埃及</item>                
+        <item>香港</item>
+        <item>夏威夷</item>
+        <item>黄山</item>
+        <item>路飞</item>
+        <item>香克斯</item>
+    </string-array>
+    
+    <string-array name="image_choose_5">                                            
+        <item>a_1</item>                
+        <item>a_2</item>
+        <item>a_3</item>
+        <item>a_4</item>
+        <item>a_5</item>
+        <item>a_6</item>
+    </string-array>
+    
+    <string-array name="name_choose_5">                                            
+        <item>埃及</item>                
+        <item>香港</item>
+        <item>夏威夷</item>
+        <item>黄山</item>
+        <item>路飞</item>
+        <item>香克斯</item>
+    </string-array>
+    
+    <string-array name="image_choose_6">                                            
+        <item>a_1</item>                
+        <item>a_2</item>
+        <item>a_3</item>
+        <item>a_4</item>
+        <item>a_5</item>
+        <item>a_6</item>
+    </string-array>
+    
+    <string-array name="name_choose_6">                                            
+        <item>埃及</item>                
+        <item>香港</item>
+        <item>夏威夷</item>
+        <item>黄山</item>
+        <item>路飞</item>
+        <item>香克斯</item>
+    </string-array>
+    
+    <string-array name="image_choose_7">                                            
+        <item>a_1</item>                
+        <item>a_2</item>
+        <item>a_3</item>
+        <item>a_4</item>
+        <item>a_5</item>
+        <item>a_6</item>
+    </string-array>
+    
+    <string-array name="name_choose_7">                                            
+        <item>埃及</item>                
+        <item>香港</item>
+        <item>夏威夷</item>
+        <item>黄山</item>
+        <item>路飞</item>
+        <item>香克斯</item>
+    </string-array>
+    
+    <string-array name="image_choose_8">                                            
+        <item>a_1</item>                
+        <item>a_2</item>
+        <item>a_3</item>
+        <item>a_4</item>
+        <item>a_5</item>
+        <item>a_6</item>
+    </string-array>
+    
+    <string-array name="name_choose_8">                                            
+        <item>埃及</item>                
+        <item>香港</item>
+        <item>夏威夷</item>
+        <item>黄山</item>
+        <item>路飞</item>
+        <item>香克斯</item>
+    </string-array>
+    
+    <string-array name="image_choose_9">                                            
+        <item>a_1</item>                
+        <item>a_2</item>
+        <item>a_3</item>
+        <item>a_4</item>
+        <item>a_5</item>
+        <item>a_6</item>
+    </string-array>
+    
+    <string-array name="name_choose_9">                                            
+        <item>埃及</item>                
+        <item>香港</item>
+        <item>夏威夷</item>
+        <item>黄山</item>
+        <item>路飞</item>
+        <item>香克斯</item>
+    </string-array>
+    
+    <string-array name="image_choose_10">                                            
+        <item>a_1</item>                
+        <item>a_2</item>
+        <item>a_3</item>
+        <item>a_4</item>
+        <item>a_5</item>
+        <item>a_6</item>
+    </string-array>
+    
+    <string-array name="name_choose_10">                                            
+        <item>埃及</item>                
+        <item>香港</item>
+        <item>夏威夷</item>
+        <item>黄山</item>
+        <item>路飞</item>
+        <item>香克斯</item>
+    </string-array>
+    
+    <string-array name="image_choose_11">                                            
+        <item>a_1</item>                
+        <item>a_2</item>
+        <item>a_3</item>
+        <item>a_4</item>
+        <item>a_5</item>
+        <item>a_6</item>
+    </string-array>
+    
+    <string-array name="name_choose_11">                                            
+        <item>埃及</item>                
+        <item>香港</item>
+        <item>夏威夷</item>
+        <item>黄山</item>
+        <item>路飞</item>
+        <item>香克斯</item>
+    </string-array>
+    
+    <string-array name="image_choose_12">                                            
+        <item>a_1</item>                
+        <item>a_2</item>
+        <item>a_3</item>
+        <item>a_4</item>
+        <item>a_5</item>
+        <item>a_6</item>
+    </string-array>
+    
+    <string-array name="name_choose_12">                                            
+        <item>埃及</item>                
+        <item>香港</item>
+        <item>夏威夷</item>
+        <item>黄山</item>
+        <item>路飞</item>
+        <item>香克斯</item>
+    </string-array>
+    
+    <string-array name="image_choose_13">                                            
+        <item>a_1</item>                
+        <item>a_2</item>
+        <item>a_3</item>
+        <item>a_4</item>
+        <item>a_5</item>
+        <item>a_6</item>
+    </string-array>
+    
+    <string-array name="name_choose_13">                                            
+        <item>埃及</item>                
+        <item>香港</item>
+        <item>夏威夷</item>
+        <item>黄山</item>
+        <item>路飞</item>
+        <item>香克斯</item>
+    </string-array>
+    
+    <string-array name="image_choose_14">                                            
+        <item>a_1</item>                
+        <item>a_2</item>
+        <item>a_3</item>
+        <item>a_4</item>
+        <item>a_5</item>
+        <item>a_6</item>
+    </string-array>
+    
+    <string-array name="name_choose_14">                                            
+        <item>埃及</item>                
+        <item>香港</item>
+        <item>夏威夷</item>
+        <item>黄山</item>
+        <item>路飞</item>
+        <item>香克斯</item>
+    </string-array>
+    
+    <string-array name="name_choose_find">                                            
+        <item>路飞</item>                
+        <item>香港</item>
+        <item>夏威夷</item>
+        <item>黄山</item>
+        <item>路飞</item>
+        <item>香克斯</item>
+        <item>埃及</item>                
+        <item>香港</item>
+        <item>夏威夷</item>
+        <item>黄山</item>
+        <item>路飞</item>
+        <item>香克斯</item>
+        <item>埃及</item>                
+        <item>香港</item>
+    </string-array>
+    
+</resources>

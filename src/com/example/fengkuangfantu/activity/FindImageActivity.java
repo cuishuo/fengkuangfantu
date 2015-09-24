@@ -2,10 +2,17 @@ package com.example.fengkuangfantu.activity;
 
 import java.util.ArrayList;
 
+import android.R.integer;
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.SyncStateContract.Columns;
+import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.view.View.OnClickListener;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.AdapterView;
@@ -20,6 +27,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import com.example.fengkuangfantu.R;
 import com.example.fengkuangfantu.adapter.FindAdapter;
 import com.example.fengkuangfantu.service.entity.FindEntity;
+import com.example.fengkuangfantu.utils.ColorUtils;
 import com.example.fengkuangfantu.utils.DisplayNextView;
 import com.example.fengkuangfantu.utils.Flip3dAnimation;
 import com.example.fengkuangfantu.utils.ToastUtil;
@@ -28,13 +36,21 @@ public class FindImageActivity extends BaseActivity {
 	
 	private boolean isTurn = false;
 	private boolean isTurning = false;
+	private final int TOTAL_INTERVAL = 50;
 	private int random = 0;
 	private int number = 4;
 	private int lastPostion = -1;
 	private int clickCount = 0;
 	private int totalCount = 0;
+	private int time = 0;
+	private int currentLevel = 0;
+	private int progressMaxZeng = 1000 / TOTAL_INTERVAL;
+	private int maxtime = 20;
+	private int levelNum = 13;
+	private AlertDialog alertDialog;
 	private ArrayList<FindEntity> findist;
 	private ArrayList<Integer> numberList;
+	private ArrayList<String[]> imageList;
 	private FindAdapter findAdapter;
 	private FrameLayout lastCoverFramlayout;
 	private FrameLayout coverFramlayout;
@@ -44,14 +60,11 @@ public class FindImageActivity extends BaseActivity {
 	private ProgressBar findProgressBar;
 	private RelativeLayout processRelativeLayout;
 	private Runnable timerRunnable;
-	private String[] imageCover1;
+	private String[] imageCover;
 	private String lastImageName = "";
 	private TextView turnImageTextView;
 	private TextView turnNextTextView;
-	private final int TOTAL_INTERVAL = 100;
-	private final int RETRY_INTERVAL = 100;
-	private int time = RETRY_INTERVAL;
-
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,36 +76,27 @@ public class FindImageActivity extends BaseActivity {
         turnNextTextView = (TextView) findViewById(R.id.turnNextTextView);
         findist = new ArrayList<FindEntity>();
         numberList = new ArrayList<Integer>();
+        imageList = new ArrayList<String[]>();
         initViews();
         initClicks();
     }
     
     private void initViews() {
-    	imageCover1 = getResources().getStringArray(R.array.image_1);
-    	while (numberList.size() < number * 3) {
-    		random = (int)(Math.random() * 6);
-    		if (numberList.contains(random)) {
-    			int count = 0;
-    			for (int i = 0; i < numberList.size(); i++) {
-					if (numberList.get(i) == random) {
-						count ++;
-					}
-				}
-    			if (count == 1) {
-    				numberList.add(random);
-				}
-			} else {
-				numberList.add(random);
-			}
-		}   	
-    	for (int i = 0; i < numberList.size(); i++) {
-			FindEntity findEntity = new FindEntity();
-			findEntity.setCover(imageCover1[numberList.get(i)]);
-			findEntity.setIsImageShow(false);
-			findist.add(findEntity);
-		}
-    	findAdapter = new FindAdapter(getApplicationContext(), mHandler, findist, findGridView, true);
-    	findGridView.setAdapter(findAdapter);
+    	imageList.add(getResources().getStringArray(R.array.image_1));
+    	imageList.add(getResources().getStringArray(R.array.image_2));
+    	imageList.add(getResources().getStringArray(R.array.image_3));
+    	imageList.add(getResources().getStringArray(R.array.image_4));
+    	imageList.add(getResources().getStringArray(R.array.image_5));
+    	imageList.add(getResources().getStringArray(R.array.image_6));
+    	imageList.add(getResources().getStringArray(R.array.image_7));
+    	imageList.add(getResources().getStringArray(R.array.image_8));
+    	imageList.add(getResources().getStringArray(R.array.image_9));
+    	imageList.add(getResources().getStringArray(R.array.image_10));
+    	imageList.add(getResources().getStringArray(R.array.image_11));
+    	imageList.add(getResources().getStringArray(R.array.image_12));
+    	imageList.add(getResources().getStringArray(R.array.image_13));
+    	imageList.add(getResources().getStringArray(R.array.image_14));
+    	initLevel(getResources().getString(R.string.turn_image_text)); 	
 	}
 
     private void initClicks() {
@@ -104,7 +108,7 @@ public class FindImageActivity extends BaseActivity {
 				isTurn = true;
 				findAdapter.setShow(true);
 				findAdapter.notifyDataSetChanged();
-				turnImageTextView.setTextColor(Color.parseColor("#828282"));
+				turnImageTextView.setTextColor(ColorUtils.getTextGrey());
 				turnImageTextView.setClickable(false);
 				mHandler.postDelayed(new Runnable() {
 					
@@ -172,54 +176,77 @@ public class FindImageActivity extends BaseActivity {
 						totalCount += 2;
 						entity.setIsImageShow(false);
 						isTurning = false;
-						if (totalCount == findist.size()) {
+						if (totalCount == findist.size()) {							
 							ToastUtil.threadShow(FindImageActivity.this, mHandler, R.string.turn_image_sucess);
 							mHandler.removeCallbacks(timerRunnable);
 							turnNextTextView.setVisibility(View.VISIBLE);
 							processRelativeLayout.setVisibility(View.GONE);
+							turnImageTextView.setVisibility(View.GONE);
+							if (currentLevel == levelNum) {
+								showNextPartAlert();
+							} 
 						}
 					}
 					clickCount = 0;
 				}		
 			}
 		});
+    	turnNextTextView.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub				
+				if (currentLevel == levelNum) {
+					gotoNextPart();
+				} else {
+					currentLevel ++;
+					turnNextTextView.setVisibility(View.GONE);
+					initLevel(getResources().getString(R.string.turn_image_text));
+				}				
+			}
+		});
 	}
     
-    private void showImage(FrameLayout coverFramlayout, ImageView defaultImageView, boolean isImageShow) {
-		coverFramlayout.setVisibility(View.INVISIBLE);
-		defaultImageView.setVisibility(View.INVISIBLE);
-		coverFramlayout.setAnimationCacheEnabled(true);
-		coverFramlayout.setDrawingCacheEnabled(true);
-		applyRotation(coverFramlayout, defaultImageView, 0, 90, isImageShow);
-		coverFramlayout.setAnimationCacheEnabled(false);
-		coverFramlayout.setDrawingCacheEnabled(false);
+    private void gotoNextPart() {
+		Intent intent = new Intent();
+		intent.setClass(getApplicationContext(), ChooseImageActivity.class);
+		startActivity(intent);
+		finish();
 	}
-	
-	private void showDefault(FrameLayout coverFramlayout, ImageView defaultImageView, boolean isImageShow) {
-		defaultImageView.setVisibility(View.INVISIBLE);
-		coverFramlayout.setVisibility(View.INVISIBLE);
-		coverFramlayout.setAnimationCacheEnabled(true);
-		coverFramlayout.setDrawingCacheEnabled(true);
-		applyRotation(coverFramlayout, defaultImageView, 0, -90, isImageShow);
-		coverFramlayout.setAnimationCacheEnabled(false);
-		coverFramlayout.setDrawingCacheEnabled(false);
-	}
-	
-	private void applyRotation(FrameLayout coverFramlayout, ImageView defaultImageView, float start, float end, boolean isImageShow) {
-		final float centerX = 240 / 2.0f;
-		final float centerY = 240 / 2.0f;
-		final Flip3dAnimation rotation = new Flip3dAnimation(start, end,
-				centerX, centerY);
-		rotation.setDuration(200);
-		rotation.setFillAfter(true);
-		rotation.setInterpolator(new AccelerateInterpolator());
-		rotation.setAnimationListener(new DisplayNextView(!isImageShow, defaultImageView, coverFramlayout));
-
-		if (!isImageShow) {
-			defaultImageView.startAnimation(rotation);
-		} else {
-			coverFramlayout.startAnimation(rotation);
-		}
+    
+    protected void showNextPartAlert() {
+		alertDialog = new AlertDialog.Builder(this).create();
+		alertDialog.show();
+		Window window = alertDialog.getWindow();
+		window.setContentView(R.layout.next_part_aleart_view);
+		RelativeLayout returnRelativeLayout = (RelativeLayout)window.findViewById(R.id.returnRelativeLayout);
+		RelativeLayout cancelRelativeLayout = (RelativeLayout)window.findViewById(R.id.cancelRelativeLayout);
+		RelativeLayout okRelativeLayout = (RelativeLayout)window.findViewById(R.id.okRelativeLayout);
+		returnRelativeLayout.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				alertDialog.cancel();
+			}
+		});
+		cancelRelativeLayout.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				alertDialog.cancel();
+			}
+		});
+		okRelativeLayout.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub		
+				alertDialog.cancel();
+				gotoNextPart();
+			}
+		});
 	}
 	
 	private void countDown() {
@@ -231,20 +258,8 @@ public class FindImageActivity extends BaseActivity {
 				time--;
 				if (time == 0) {
 					findProgressBar.setProgress(time);
-					ToastUtil.threadShow(FindImageActivity.this, mHandler, R.string.turn_image_fail);
-					time = RETRY_INTERVAL;
-					turnImageTextView.setText(getResources().getString(R.string.turn_image_retry));
-					turnImageTextView.setVisibility(View.VISIBLE);
-					processRelativeLayout.setVisibility(View.GONE);
-					turnImageTextView.setTextColor(Color.parseColor("#3ad2a2"));
-					turnImageTextView.setClickable(true);
-					totalCount = 0;
-					isTurn = false;
-					for (int i = 0; i < findist.size(); i++) {
-						findist.get(i).setIsImageShow(false);
-					}
-					findAdapter = new FindAdapter(getApplicationContext(), mHandler, findist, findGridView, true);
-			    	findGridView.setAdapter(findAdapter);
+					ToastUtil.threadShow(FindImageActivity.this, mHandler, R.string.turn_image_fail);					
+					initLevel(getResources().getString(R.string.turn_image_retry));
 				} else {
 					findProgressBar.setProgress(time);
 					mHandler.postDelayed(this, TOTAL_INTERVAL);
@@ -253,5 +268,52 @@ public class FindImageActivity extends BaseActivity {
 		};
 		mHandler.postDelayed(timerRunnable, TOTAL_INTERVAL);
 	}
+	
+	private void initLevel(String text) {		
+		imageCover = imageList.get(currentLevel);
+		time = (maxtime - currentLevel) * progressMaxZeng;
+    	findProgressBar.setMax(time);		
+		turnImageTextView.setText(text);
+		turnImageTextView.setVisibility(View.VISIBLE);
+		processRelativeLayout.setVisibility(View.GONE);
+		turnImageTextView.setTextColor(ColorUtils.getCommonGreen());
+		turnImageTextView.setClickable(true);
+		totalCount = 0;
+		isTurn = false;
+		numberList.clear();
+		findist.clear();
+		while (numberList.size() < number * 3) {
+    		random = (int)(Math.random() * 6);
+    		if (numberList.contains(random)) {
+    			int count = 0;
+    			for (int i = 0; i < numberList.size(); i++) {
+					if (numberList.get(i) == random) {
+						count ++;
+					}
+				}
+    			if (count == 1) {
+    				numberList.add(random);
+				}
+			} else {
+				numberList.add(random);
+			}
+		}   	
+    	for (int i = 0; i < numberList.size(); i++) {
+			FindEntity findEntity = new FindEntity();
+			findEntity.setCover(imageCover[numberList.get(i)]);
+			findEntity.setIsImageShow(false);
+			findist.add(findEntity);
+		}
+    	findAdapter = new FindAdapter(getApplicationContext(), mHandler, findist, findGridView, true);
+    	findGridView.setAdapter(findAdapter);
+	}
+	
+//	private void setLevel(String text) {
+//		imageCover = imageList.get(currentLevel);
+//		time = (maxtime - currentLevel) * progressMaxZeng;
+//    	findProgressBar.setMax(time);		
+//    	Log.d("xiaoding","time ..... ="+time);
+//		initLevel(text); 
+//	}
 
 }

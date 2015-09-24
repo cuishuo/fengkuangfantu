@@ -40,6 +40,14 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
+        
+        <activity
+            android:name=".activity.ChooseImageActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|locale|fontScale|uiMode"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
     </application>
 
 </manifest>

@@ -81,48 +81,6 @@ public class MainActivity extends BaseActivity {
 		});
 	}
 
-	private void showImage(FrameLayout coverFramlayout,
-			ImageView defaultImageView, boolean isImageShow) {
-		coverFramlayout.setVisibility(View.INVISIBLE);
-		defaultImageView.setVisibility(View.INVISIBLE);
-		coverFramlayout.setAnimationCacheEnabled(true);
-		coverFramlayout.setDrawingCacheEnabled(true);
-		applyRotation(coverFramlayout, defaultImageView, 0, 90, isImageShow);
-		coverFramlayout.setAnimationCacheEnabled(false);
-		coverFramlayout.setDrawingCacheEnabled(false);
-	}
-
-	private void showDefault(FrameLayout coverFramlayout,
-			ImageView defaultImageView, boolean isImageShow) {
-		defaultImageView.setVisibility(View.INVISIBLE);
-		coverFramlayout.setVisibility(View.INVISIBLE);
-		coverFramlayout.setAnimationCacheEnabled(true);
-		coverFramlayout.setDrawingCacheEnabled(true);
-		applyRotation(coverFramlayout, defaultImageView, 0, -90, isImageShow);
-		coverFramlayout.setAnimationCacheEnabled(false);
-		coverFramlayout.setDrawingCacheEnabled(false);
-	}
-
-	private void applyRotation(FrameLayout coverFramlayout,
-			ImageView defaultImageView, float start, float end,
-			boolean isImageShow) {
-		final float centerX = 240 / 2.0f;
-		final float centerY = 240 / 2.0f;
-		final Flip3dAnimation rotation = new Flip3dAnimation(start, end,
-				centerX, centerY);
-		rotation.setDuration(200);
-		rotation.setFillAfter(true);
-		rotation.setInterpolator(new AccelerateInterpolator());
-		rotation.setAnimationListener(new DisplayNextView(!isImageShow,
-				defaultImageView, coverFramlayout));
-
-		if (!isImageShow) {
-			defaultImageView.startAnimation(rotation);
-		} else {
-			coverFramlayout.startAnimation(rotation);
-		}
-	}
-
 	private void tartClick() {
 		timerRunnable = new Runnable() {
 
