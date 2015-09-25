@@ -15,71 +15,59 @@
         android:contentDescription="@null"
         android:src="@drawable/main_title" />
 
-    <FrameLayout
-        android:id="@+id/mainFramlayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:orientation="horizontal"
-        android:visibility="gone" >
-
-        <ImageView
-            android:id="@+id/mainImageView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="3dp"
-            android:layout_marginLeft="3dp"
-            android:layout_marginRight="3dp"
-            android:layout_marginTop="3dp"
-            android:background="@color/transparent"
-            android:contentDescription="@null"
-            android:scaleType="centerCrop"
-            android:src="@drawable/main_smail" />
-    </FrameLayout>
-
-    <ImageView
-        android:id="@+id/defaultImageView"
+    <RelativeLayout
+        android:id="@+id/contentRelativeLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/titleImageView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:background="@color/transparent"
-        android:contentDescription="@null"
-        android:src="@drawable/main_sad" />
+        android:layout_marginTop="10dp"
+        android:background="@color/transparent" >
 
-    <!--
-        GridView
-        android:id="@+id/mainImageGridView"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/mainTitleTextView"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="40dp"
-        android:background="#00000000"
-        android:horizontalSpacing="0dp"
-        android:listSelector="#00000000"
-        android:numColumns="3" /
-    -->
+        <FrameLayout
+            android:id="@+id/mainFramlayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <ImageView
+                android:id="@+id/mainImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                android:src="@drawable/main_smail" />
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/defaultImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:background="@color/transparent"
+            android:contentDescription="@null"
+            android:src="@drawable/main_sad" />
+    </RelativeLayout>
 
     <ImageView
         android:id="@+id/clickImageView"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="150dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/titleImageView"
+        android:layout_marginTop="100dp"
         android:background="@color/transparent"
         android:contentDescription="@null"
-        android:src="@drawable/main_click"
-        android:visibility="gone" />
+        android:src="@drawable/main_hand"
+        android:visibility="invisible" />
 
     <RelativeLayout
         android:id="@+id/buttonRelativeLayout"
         android:layout_width="fill_parent"
-        android:layout_height="150dp"
+        android:layout_height="170dp"
         android:layout_alignParentBottom="true"
         android:background="@color/transparent" >
 

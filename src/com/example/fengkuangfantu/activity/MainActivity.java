@@ -27,12 +27,13 @@ import com.example.fengkuangfantu.utils.ToastUtil;
 
 public class MainActivity extends BaseActivity {
 
-	 private Animation animation;
+	private Animation animation;
 	private ArrayList<FindEntity> findist;
 	private MainImageAdapter mainImageAdapter;
 	private FrameLayout coverFramlayout;
 //	private GridView mainImageGridView;
 	private ImageButton startImagebutton;
+	private ImageButton settingImagebutton;
 	private ImageView clickImageView;
 	private ImageView defaultImageView;
 	private Runnable timerRunnable;
@@ -47,8 +48,11 @@ public class MainActivity extends BaseActivity {
 		setContentView(R.layout.activity_main);
 //		mainImageGridView = (GridView) findViewById(R.id.mainImageGridView);
 		startImagebutton = (ImageButton) findViewById(R.id.startImagebutton);
+		settingImagebutton = (ImageButton) findViewById(R.id.settingImagebutton);
 		clickImageView = (ImageView) findViewById(R.id.clickImageView);
+		defaultImageView = (ImageView) findViewById(R.id.defaultImageView);
 //		mainTitleTextView = (TextView) findViewById(R.id.mainTitleTextView);
+		coverFramlayout = (FrameLayout) findViewById(R.id.mainFramlayout);
 		findist = new ArrayList<FindEntity>();
 		initViews();
 		initClicks();
@@ -76,6 +80,17 @@ public class MainActivity extends BaseActivity {
 				Intent intent = new Intent();
 				intent.setClass(getApplicationContext(),
 						FindImageActivity.class);
+				startActivity(intent);
+			}
+		});
+		settingImagebutton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent();
+				intent.setClass(getApplicationContext(),
+						ChooseImageActivity.class);
 				startActivity(intent);
 			}
 		});
@@ -119,12 +134,12 @@ public class MainActivity extends BaseActivity {
 //							defaultImageView = (ImageView) mainImageGridView
 //									.getChildAt(4).findViewById(
 //											R.id.defaultImageView);
-//							showImage(coverFramlayout, defaultImageView, false);
+							showImage(coverFramlayout, defaultImageView, false);
 							if (animation !=  null) {
 								clickImageView.clearAnimation();
 								animation = null;
 							}
-							clickImageView.setVisibility(View.GONE);
+							clickImageView.setVisibility(View.INVISIBLE);
 							mHandler.postDelayed(new Runnable() {
 
 								@Override
@@ -132,7 +147,7 @@ public class MainActivity extends BaseActivity {
 									// TODO Auto-generated method stub
 									showDefault(coverFramlayout, defaultImageView, true);
 								}
-							}, 500);
+							}, 1500);
 
 						}
 					});

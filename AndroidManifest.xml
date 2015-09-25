@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme" >
         
         <activity
-            android:name="com.example.fengkuangfantu.activity.WelcomeActivity"
+            android:name="com.example.fengkuangfantu.activity.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
@@ -26,7 +26,7 @@
         </activity>
         
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".activity.WelcomeActivity"
             android:configChanges="orientation|keyboard|keyboardHidden|locale|fontScale|uiMode"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"

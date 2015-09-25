@@ -35,8 +35,8 @@ public class BaseActivity extends Activity {
 	}
 	
 	protected void applyRotation(FrameLayout coverFramlayout, ImageView defaultImageView, float start, float end, boolean isImageShow) {
-		final float centerX = 240 / 2.0f;
-		final float centerY = 240 / 2.0f;
+		final float centerX = defaultImageView.getWidth() / 2.0f;
+		final float centerY = defaultImageView.getHeight() / 2.0f;
 		final Flip3dAnimation rotation = new Flip3dAnimation(start, end,
 				centerX, centerY);
 		rotation.setDuration(200);
