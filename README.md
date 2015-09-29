@@ -1,4 +1,3 @@
-1 feng kuang fan tu
-2 pin tu
-3 yidong tu pian
-4 nihao
+1 白色（浅色为主题基调）
+2 欢迎界面 应用名称 应用logo 公司名称
+3 应用图标圆弧，且不是纯粹的白色
