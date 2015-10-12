@@ -3,34 +3,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white" >
-    
-    <LinearLayout
-        android:id="@+id/contentLinearLayout"
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:background="@color/transparent"
-        android:orientation="horizontal" >
+        android:layout_centerInParent="true" >
         
+        <ImageView
+            android:id="@+id/logoImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="15dp"
+            android:src="@drawable/logo"
+            android:contentDescription="@null" />
+
         <TextView
-            android:id="@+id/text1"
-            style="@style/welcom_text_style"
-            android:text="@string/turn_image_text1" />
-        
+            android:id="@+id/titleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/logoImageView"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="40sp" />
+
         <TextView
-            android:id="@+id/text2"
-            style="@style/welcom_text_style"
-            android:text="@string/turn_image_text2" />
-        
-        <TextView
-            android:id="@+id/text3"
-            style="@style/welcom_text_style"
-            android:text="@string/turn_image_text3" />
-        
-        <TextView
-            android:id="@+id/text4"
-            style="@style/welcom_text_style"
-            android:text="@string/turn_image_text4" />
-    </LinearLayout>
+            android:id="@+id/desTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/titleTextView"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/team_name"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
 
 </RelativeLayout>
