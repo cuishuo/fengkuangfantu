@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_background" >
+    android:background="@color/white" >
 
     <ImageView
         android:id="@+id/titleImageView"
@@ -13,7 +13,7 @@
         android:layout_marginTop="50dp"
         android:background="@color/transparent"
         android:contentDescription="@null"
-        android:src="@drawable/main_title" />
+        android:src="@drawable/biaoti" />
 
     <RelativeLayout
         android:id="@+id/contentRelativeLayout"
@@ -28,8 +28,8 @@
             android:id="@+id/mainFramlayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="20dp"
             android:orientation="horizontal"
+            android:padding="20dp"
             android:visibility="gone" >
 
             <ImageView
@@ -46,64 +46,102 @@
             android:id="@+id/defaultImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="20dp"
             android:background="@color/transparent"
             android:contentDescription="@null"
+            android:padding="20dp"
             android:src="@drawable/main_sad" />
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/clickImageView"
+    <TextView
+        android:id="@+id/partTextView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/contentRelativeLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/main_button"
+        android:gravity="center_horizontal"
+        android:paddingTop="7dp"
+        android:text="@string/main_part1"
+        android:textColor="@color/title"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/partTextView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/partTextView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/main_button"
+        android:gravity="center_horizontal"
+        android:paddingTop="7dp"
+        android:text="@string/main_part2"
+        android:textColor="@color/title"
+        android:textSize="15sp" />
+
+    <ImageView
+        android:id="@+id/clickImageView"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
         android:layout_alignParentRight="true"
         android:layout_below="@id/titleImageView"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginRight="40dp"
         android:background="@color/transparent"
         android:contentDescription="@null"
         android:src="@drawable/main_hand"
         android:visibility="invisible" />
 
-    <RelativeLayout
-        android:id="@+id/buttonRelativeLayout"
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="170dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/transparent" >
+        android:layout_height="fill_parent"
+        android:layout_below="@id/partTextView2"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:baselineAligned="false" >
 
-        <ImageButton
-            android:id="@+id/settingImagebutton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/transparent"
-            android:contentDescription="@null"
-            android:src="@drawable/main_setting" />
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" >
 
-        <ImageButton
-            android:id="@+id/startImagebutton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
-            android:background="@color/transparent"
-            android:contentDescription="@null"
-            android:src="@drawable/main_start" />
+            <ImageButton
+                android:id="@+id/zhanjiImagebutton"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/main_zhanji"
+                android:contentDescription="@null" />
+        </RelativeLayout>
 
-        <ImageButton
-            android:id="@+id/aboutImagebutton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/transparent"
-            android:contentDescription="@null"
-            android:src="@drawable/main_about" />
-    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" >
+
+            <ImageButton
+                android:id="@+id/settingImagebutton"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/main_setting"
+                android:contentDescription="@null" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" >
+
+            <ImageButton
+                android:id="@+id/aboutImagebutton"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/main_about"
+                android:contentDescription="@null" />
+        </RelativeLayout>
+    </LinearLayout>
 
 </RelativeLayout>

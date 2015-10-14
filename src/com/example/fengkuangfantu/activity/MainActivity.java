@@ -32,12 +32,13 @@ public class MainActivity extends BaseActivity {
 	private MainImageAdapter mainImageAdapter;
 	private FrameLayout coverFramlayout;
 //	private GridView mainImageGridView;
-	private ImageButton startImagebutton;
-	private ImageButton settingImagebutton;
+//	private ImageButton startImagebutton;
+//	private ImageButton settingImagebutton;
 	private ImageView clickImageView;
 	private ImageView defaultImageView;
 	private Runnable timerRunnable;
-//	private TextView mainTitleTextView;
+	private TextView partTextView1;
+	private TextView partTextView2;
 	private final int REPET_INTERVAL = 3000;
 	private final int RETRY_INTERVAL = 50;
 	private int time = RETRY_INTERVAL;
@@ -47,11 +48,12 @@ public class MainActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 //		mainImageGridView = (GridView) findViewById(R.id.mainImageGridView);
-		startImagebutton = (ImageButton) findViewById(R.id.startImagebutton);
-		settingImagebutton = (ImageButton) findViewById(R.id.settingImagebutton);
+//		startImagebutton = (ImageButton) findViewById(R.id.startImagebutton);
+//		settingImagebutton = (ImageButton) findViewById(R.id.settingImagebutton);
 		clickImageView = (ImageView) findViewById(R.id.clickImageView);
 		defaultImageView = (ImageView) findViewById(R.id.defaultImageView);
-//		mainTitleTextView = (TextView) findViewById(R.id.mainTitleTextView);
+		partTextView1 = (TextView) findViewById(R.id.partTextView1);
+		partTextView2 = (TextView) findViewById(R.id.partTextView2);
 		coverFramlayout = (FrameLayout) findViewById(R.id.mainFramlayout);
 		findist = new ArrayList<FindEntity>();
 		initViews();
@@ -72,7 +74,7 @@ public class MainActivity extends BaseActivity {
 	}
 
 	private void initClicks() {
-		startImagebutton.setOnClickListener(new OnClickListener() {
+		partTextView1.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -83,7 +85,7 @@ public class MainActivity extends BaseActivity {
 				startActivity(intent);
 			}
 		});
-		settingImagebutton.setOnClickListener(new OnClickListener() {
+		partTextView2.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
