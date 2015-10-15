@@ -127,4 +127,19 @@
         <item>a_6</item>
     </string-array>
     
+    <string-array name="guan_name">                                            
+        <item>白羊宫    1th</item>                
+        <item>金牛宫    2th</item>
+        <item>双子宫    3th</item>
+        <item>巨蟹宫    4th</item>
+        <item>狮子宫    5th</item>
+        <item>处女宫    6th</item>
+        <item>天秤宫    7th</item>                
+        <item>天蝎宫    8th</item>
+        <item>射手宫    9th</item>
+        <item>摩羯宫    10th</item>
+        <item>水瓶宫    11th</item>
+        <item>双鱼宫    12th</item>
+    </string-array>
+    
 </resources>

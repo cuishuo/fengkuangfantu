@@ -46,11 +46,12 @@ public class FindImageActivity extends BaseActivity {
 	private int currentLevel = 0;
 	private int progressMaxZeng = 1000 / TOTAL_INTERVAL;
 	private int maxtime = 20;
-	private int levelNum = 13;
+	private int levelNum = 11;
 	private AlertDialog alertDialog;
 	private ArrayList<FindEntity> findist;
 	private ArrayList<Integer> numberList;
 	private ArrayList<String[]> imageList;
+	private String[] guanNameList;
 	private FindAdapter findAdapter;
 	private FrameLayout lastCoverFramlayout;
 	private FrameLayout coverFramlayout;
@@ -64,6 +65,8 @@ public class FindImageActivity extends BaseActivity {
 	private String lastImageName = "";
 	private TextView turnImageTextView;
 	private TextView turnNextTextView;
+	private TextView guanTextView;
+	private TextView timeTextView;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +77,8 @@ public class FindImageActivity extends BaseActivity {
         processRelativeLayout = (RelativeLayout) findViewById(R.id.processRelativeLayout);
         turnImageTextView = (TextView) findViewById(R.id.turnImageTextView);
         turnNextTextView = (TextView) findViewById(R.id.turnNextTextView);
+        guanTextView = (TextView)findViewById(R.id.guanTextView);
+        timeTextView = (TextView)findViewById(R.id.timeTextView);
         findist = new ArrayList<FindEntity>();
         numberList = new ArrayList<Integer>();
         imageList = new ArrayList<String[]>();
@@ -96,6 +101,7 @@ public class FindImageActivity extends BaseActivity {
     	imageList.add(getResources().getStringArray(R.array.image_12));
     	imageList.add(getResources().getStringArray(R.array.image_13));
     	imageList.add(getResources().getStringArray(R.array.image_14));
+    	guanNameList = getResources().getStringArray(R.array.guan_name);
     	initLevel(getResources().getString(R.string.turn_image_text)); 	
 	}
 
@@ -271,7 +277,10 @@ public class FindImageActivity extends BaseActivity {
 	
 	private void initLevel(String text) {		
 		imageCover = imageList.get(currentLevel);
+		guanTextView.setText(guanNameList[currentLevel]);
 		time = (maxtime - currentLevel) * progressMaxZeng;
+		int timeText = maxtime - currentLevel;
+		timeTextView.setText(timeText + "s");
     	findProgressBar.setMax(time);		
 		turnImageTextView.setText(text);
 		turnImageTextView.setVisibility(View.VISIBLE);
