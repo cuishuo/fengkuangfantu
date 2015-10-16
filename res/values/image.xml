@@ -142,4 +142,19 @@
         <item>双鱼宫    12th</item>
     </string-array>
     
+    <string-array name="default_image">                                            
+        <item>baiyang</item>                
+        <item>jinniu</item>
+        <item>shuangzi</item>
+        <item>juxie</item>
+        <item>shizi</item>
+        <item>chunv</item>
+        <item>tiancheng</item>                
+        <item>tianxie</item>
+        <item>sheshou</item>
+        <item>mejie</item>
+        <item>shuiping</item>
+        <item>shuangyu</item>
+    </string-array>
+    
 </resources>

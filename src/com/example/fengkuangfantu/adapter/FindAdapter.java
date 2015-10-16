@@ -133,7 +133,10 @@ public class FindAdapter extends BaseAdapter {
 		holder.contentRelativeLayout = (RelativeLayout) convertView.findViewById(R.id.contentRelativeLayout);
 		final FindEntity entity = findist.get(position);		
 		String imageUrl = entity.getCover();
+		String imageDefaultUrl = entity.getDefaultCover();
 		ApplicationInfo appInfo = context.getApplicationInfo();
+		int resIDDefault = context.getResources().getIdentifier(imageDefaultUrl, "drawable", appInfo.packageName);
+		holder.defaultImageView.setImageResource(resIDDefault);
 		int resID = context.getResources().getIdentifier(imageUrl, "drawable", appInfo.packageName);
 		holder.coverImageView.setImageResource(resID);
 		boolean isImageShow = entity.getIsImageShow();

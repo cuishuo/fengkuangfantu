@@ -62,6 +62,7 @@ public class FindImageActivity extends BaseActivity {
 	private RelativeLayout processRelativeLayout;
 	private Runnable timerRunnable;
 	private String[] imageCover;
+	private String[] defaultImageCover;
 	private String lastImageName = "";
 	private TextView turnImageTextView;
 	private TextView turnNextTextView;
@@ -102,6 +103,7 @@ public class FindImageActivity extends BaseActivity {
     	imageList.add(getResources().getStringArray(R.array.image_13));
     	imageList.add(getResources().getStringArray(R.array.image_14));
     	guanNameList = getResources().getStringArray(R.array.guan_name);
+    	defaultImageCover = getResources().getStringArray(R.array.default_image);
     	initLevel(getResources().getString(R.string.turn_image_text)); 	
 	}
 
@@ -306,10 +308,12 @@ public class FindImageActivity extends BaseActivity {
 			} else {
 				numberList.add(random);
 			}
-		}   	
+		} 
+		String defaultCover = defaultImageCover[currentLevel];
     	for (int i = 0; i < numberList.size(); i++) {
 			FindEntity findEntity = new FindEntity();
 			findEntity.setCover(imageCover[numberList.get(i)]);
+			findEntity.setDefaultCover(defaultCover);
 			findEntity.setIsImageShow(false);
 			findist.add(findEntity);
 		}

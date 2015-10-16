@@ -5,6 +5,7 @@ public class FindEntity extends BaseEntity {
 	private int id = 0;
 	private String name="";
 	private String cover="";
+	private String defaultCover="";
 	private boolean isImageShow = false;
 	
 	public int getId() {
@@ -26,6 +27,13 @@ public class FindEntity extends BaseEntity {
 	}
 	public void setCover(String cover) {
 		this.cover = cover;
+	}
+	
+	public String getDefaultCover() {
+		return defaultCover;
+	}
+	public void setDefaultCover(String defaultCover) {
+		this.defaultCover = defaultCover;
 	}
 	
 	public boolean getIsImageShow() {
