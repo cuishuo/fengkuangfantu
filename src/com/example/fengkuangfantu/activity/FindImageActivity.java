@@ -1,12 +1,18 @@
 package com.example.fengkuangfantu.activity;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import android.R.integer;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
 import android.graphics.Color;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.media.SoundPool;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.SyncStateContract.Columns;
@@ -47,6 +53,7 @@ public class FindImageActivity extends BaseActivity {
 	private int progressMaxZeng = 1000 / TOTAL_INTERVAL;
 	private int maxtime = 20;
 	private int levelNum = 11;
+	private int music;
 	private AlertDialog alertDialog;
 	private ArrayList<FindEntity> findist;
 	private ArrayList<Integer> numberList;
@@ -58,12 +65,14 @@ public class FindImageActivity extends BaseActivity {
 	private GridView findGridView;
 	private ImageView lastDefaultImageView;
 	private ImageView defaultImageView;
+	private MediaPlayer mediaPlayer;
 	private ProgressBar findProgressBar;
 	private RelativeLayout processRelativeLayout;
 	private Runnable timerRunnable;
 	private String[] imageCover;
 	private String[] defaultImageCover;
 	private String lastImageName = "";
+	private SoundPool soundPool;
 	private TextView turnImageTextView;
 	private TextView turnNextTextView;
 	private TextView guanTextView;
@@ -83,6 +92,9 @@ public class FindImageActivity extends BaseActivity {
         findist = new ArrayList<FindEntity>();
         numberList = new ArrayList<Integer>();
         imageList = new ArrayList<String[]>();
+        mediaPlayer = new MediaPlayer();
+        soundPool = new SoundPool(10, AudioManager.STREAM_SYSTEM, 5);
+        music = soundPool.load(this, R.raw.anjian, 1);
         initViews();
         initClicks();
     }
@@ -105,6 +117,20 @@ public class FindImageActivity extends BaseActivity {
     	guanNameList = getResources().getStringArray(R.array.guan_name);
     	defaultImageCover = getResources().getStringArray(R.array.default_image);
     	initLevel(getResources().getString(R.string.turn_image_text)); 	
+    	   	
+		try {
+			AssetManager assetManager = getAssets();
+			AssetFileDescriptor fileDescriptor = assetManager
+					.openFd("youxi.mp3");
+			mediaPlayer.setDataSource(fileDescriptor.getFileDescriptor(),
+			fileDescriptor.getStartOffset(),
+			fileDescriptor.getLength());
+			mediaPlayer.prepare();
+			mediaPlayer.start();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
     private void initClicks() {
@@ -118,11 +144,13 @@ public class FindImageActivity extends BaseActivity {
 				findAdapter.notifyDataSetChanged();
 				turnImageTextView.setTextColor(ColorUtils.getTextGrey());
 				turnImageTextView.setClickable(false);
+				soundPool.play(music, 1, 1, 0, 0, 1);
 				mHandler.postDelayed(new Runnable() {
 					
 					@Override
 					public void run() {
 						// TODO Auto-generated method stub
+						soundPool.play(music, 1, 1, 0, 0, 1);
 						for (int i = 0; i < findist.size(); i++) {
 							findist.get(i).setIsImageShow(true);
 						}
