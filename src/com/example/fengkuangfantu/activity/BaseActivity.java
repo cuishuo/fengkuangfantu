@@ -13,6 +13,7 @@ import android.widget.ImageView;
 public class BaseActivity extends Activity {
 	
 	public static Handler mHandler = new Handler();
+	protected final int THUMB_SIZE = 200;
 	
 	protected void showImage(FrameLayout coverFramlayout, ImageView defaultImageView, boolean isImageShow) {
 		coverFramlayout.setVisibility(View.INVISIBLE);
