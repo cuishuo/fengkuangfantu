@@ -353,7 +353,6 @@ public class FindImageActivity extends BaseActivity {
 //		imageCover = imageList.get(currentLevel);
 //		time = (maxtime - currentLevel) * progressMaxZeng;
 //    	findProgressBar.setMax(time);		
-//    	Log.d("xiaoding","time ..... ="+time);
 //		initLevel(text); 
 //	}
 
