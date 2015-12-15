@@ -24,7 +24,7 @@ import com.example.fengkuangfantu.adapter.ChooseAdapter;
 import com.example.fengkuangfantu.adapter.FindAdapter;
 import com.example.fengkuangfantu.service.entity.FindEntity;
 import com.example.fengkuangfantu.utils.ColorUtils;
-import com.example.fengkuangfantu.utils.SoundPlay;
+import com.example.fengkuangfantu.utils.SoundPlayer;
 import com.example.fengkuangfantu.utils.ToastUtil;
 
 public class ChooseImageActivity extends BaseActivity {
@@ -61,7 +61,7 @@ public class ChooseImageActivity extends BaseActivity {
 	private TextView turnImageTextView;
 	private TextView turnNextTextView;
     private MediaPlayer mediaPlayer;
-    private SoundPlay mSoundPlay;
+    private SoundPlayer mSoundPlayer;
 	
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -286,16 +286,16 @@ public class ChooseImageActivity extends BaseActivity {
     protected void onResume() {
         // TODO Auto-generated method stub
         super.onResume();
-        mSoundPlay = new SoundPlay(this, SoundPlay.GAME_MAIN);
-        mSoundPlay.startPlay();
+        mSoundPlayer = new SoundPlayer(this, SoundPlayer.GAME_MAIN);
+        mSoundPlayer.startPlay();
     }
 
     @Override
     protected void onPause() {
         // TODO Auto-generated method stub
-        if (mSoundPlay != null) {
-            mSoundPlay.stopPlay();
-            mSoundPlay = null;
+        if (mSoundPlayer != null) {
+            mSoundPlayer.stopPlay();
+            mSoundPlayer = null;
         }
         super.onPause();
     }

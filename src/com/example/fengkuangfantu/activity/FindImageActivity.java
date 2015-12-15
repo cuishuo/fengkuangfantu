@@ -36,7 +36,7 @@ import com.example.fengkuangfantu.service.entity.FindEntity;
 import com.example.fengkuangfantu.utils.ColorUtils;
 import com.example.fengkuangfantu.utils.DisplayNextView;
 import com.example.fengkuangfantu.utils.Flip3dAnimation;
-import com.example.fengkuangfantu.utils.SoundPlay;
+import com.example.fengkuangfantu.utils.SoundPlayer;
 import com.example.fengkuangfantu.utils.ToastUtil;
 
 public class FindImageActivity extends BaseActivity {
@@ -78,7 +78,7 @@ public class FindImageActivity extends BaseActivity {
 	private TextView turnNextTextView;
 	private TextView guanTextView;
 	private TextView timeTextView;
-    private SoundPlay mSoundPlay;
+    private SoundPlayer mSoundPlayer;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -349,16 +349,16 @@ public class FindImageActivity extends BaseActivity {
     protected void onResume() {
         // TODO Auto-generated method stub
         super.onResume();
-        mSoundPlay = new SoundPlay(this, SoundPlay.GAME_PART1);
-        mSoundPlay.startPlay();
+        mSoundPlayer = new SoundPlayer(this, SoundPlayer.GAME_PART1);
+        mSoundPlayer.startPlay();
     }
 
     @Override
     protected void onPause() {
         // TODO Auto-generated method stub
-        if (mSoundPlay != null) {
-            mSoundPlay.stopPlay();
-            mSoundPlay = null;
+        if (mSoundPlayer != null) {
+            mSoundPlayer.stopPlay();
+            mSoundPlayer = null;
         }
         super.onPause();
     }

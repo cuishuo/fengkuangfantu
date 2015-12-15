@@ -30,7 +30,7 @@ import com.example.fengkuangfantu.service.entity.FindEntity;
 import com.example.fengkuangfantu.utils.DisplayNextView;
 import com.example.fengkuangfantu.utils.Flip3dAnimation;
 import com.example.fengkuangfantu.utils.ProcessImageUtil;
-import com.example.fengkuangfantu.utils.SoundPlay;
+import com.example.fengkuangfantu.utils.SoundPlayer;
 import com.example.fengkuangfantu.utils.ToastUtil;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.controller.UMServiceFactory;
@@ -59,7 +59,7 @@ public class MainActivity extends BaseActivity {
 	private String TAG = "MainActivity";
 	private final UMSocialService mController = UMServiceFactory
             .getUMSocialService("com.umeng.share");
-	private SoundPlay mSoundPlay;
+	private SoundPlayer mSoundPlayer;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -228,16 +228,16 @@ public class MainActivity extends BaseActivity {
 	protected void onResume() {
 	    // TODO Auto-generated method stub
 	    super.onResume();
-	    mSoundPlay = new SoundPlay(this, SoundPlay.GAME_MAIN);
-	    mSoundPlay.startPlay();
+	    mSoundPlayer = new SoundPlayer(this, SoundPlayer.GAME_MAIN);
+	    mSoundPlayer.startPlay();
 	}
 	
 	@Override
 	protected void onPause() {
 	    // TODO Auto-generated method stub
-	    if (mSoundPlay != null) {
-	        mSoundPlay.stopPlay();
-	        mSoundPlay = null;
+	    if (mSoundPlayer != null) {
+	        mSoundPlayer.stopPlay();
+	        mSoundPlayer = null;
         }
 	    super.onPause();
 	}
