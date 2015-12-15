@@ -1,8 +1,12 @@
 package com.example.fengkuangfantu.activity;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import android.annotation.SuppressLint;
+import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -20,6 +24,7 @@ import com.example.fengkuangfantu.adapter.ChooseAdapter;
 import com.example.fengkuangfantu.adapter.FindAdapter;
 import com.example.fengkuangfantu.service.entity.FindEntity;
 import com.example.fengkuangfantu.utils.ColorUtils;
+import com.example.fengkuangfantu.utils.SoundPlay;
 import com.example.fengkuangfantu.utils.ToastUtil;
 
 public class ChooseImageActivity extends BaseActivity {
@@ -55,6 +60,8 @@ public class ChooseImageActivity extends BaseActivity {
 	private String chooseName = "";
 	private TextView turnImageTextView;
 	private TextView turnNextTextView;
+    private MediaPlayer mediaPlayer;
+    private SoundPlay mSoundPlay;
 	
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +77,7 @@ public class ChooseImageActivity extends BaseActivity {
         chooseNameList = new ArrayList<String>();
         chooseList = new ArrayList<FindEntity>();
         numberList = new ArrayList<Integer>();
+        mediaPlayer = new MediaPlayer();
         initViews();
         initClicks();
 	}
@@ -273,5 +281,23 @@ public class ChooseImageActivity extends BaseActivity {
 		};
 		mHandler.postDelayed(timerRunnable, TOTAL_INTERVAL);
 	}
+	
+    @Override
+    protected void onResume() {
+        // TODO Auto-generated method stub
+        super.onResume();
+        mSoundPlay = new SoundPlay(this, SoundPlay.GAME_MAIN);
+        mSoundPlay.startPlay();
+    }
+
+    @Override
+    protected void onPause() {
+        // TODO Auto-generated method stub
+        if (mSoundPlay != null) {
+            mSoundPlay.stopPlay();
+            mSoundPlay = null;
+        }
+        super.onPause();
+    }
 
 }

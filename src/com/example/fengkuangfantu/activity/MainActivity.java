@@ -1,10 +1,14 @@
 package com.example.fengkuangfantu.activity;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import android.content.Intent;
+import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -26,6 +30,7 @@ import com.example.fengkuangfantu.service.entity.FindEntity;
 import com.example.fengkuangfantu.utils.DisplayNextView;
 import com.example.fengkuangfantu.utils.Flip3dAnimation;
 import com.example.fengkuangfantu.utils.ProcessImageUtil;
+import com.example.fengkuangfantu.utils.SoundPlay;
 import com.example.fengkuangfantu.utils.ToastUtil;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.controller.UMServiceFactory;
@@ -54,6 +59,7 @@ public class MainActivity extends BaseActivity {
 	private String TAG = "MainActivity";
 	private final UMSocialService mController = UMServiceFactory
             .getUMSocialService("com.umeng.share");
+	private SoundPlay mSoundPlay;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -226,6 +232,30 @@ public class MainActivity extends BaseActivity {
         UMWXHandler wxCircleHandler = new UMWXHandler(MainActivity.this, appId, appSecret);
         wxCircleHandler.setToCircle(true);
         wxCircleHandler.addToSocialSDK();
+    }
+	
+	@Override
+	protected void onResume() {
+	    // TODO Auto-generated method stub
+	    super.onResume();
+	    mSoundPlay = new SoundPlay(this, SoundPlay.GAME_MAIN);
+	    mSoundPlay.startPlay();
+	}
+	
+	@Override
+	protected void onPause() {
+	    // TODO Auto-generated method stub
+	    if (mSoundPlay != null) {
+	        mSoundPlay.stopPlay();
+	        mSoundPlay = null;
+        }
+	    super.onPause();
+	}
+    
+    @Override
+    protected void onDestroy() {
+        // TODO Auto-generated method stub
+        super.onDestroy();
     }
 
 }

@@ -36,6 +36,7 @@ import com.example.fengkuangfantu.service.entity.FindEntity;
 import com.example.fengkuangfantu.utils.ColorUtils;
 import com.example.fengkuangfantu.utils.DisplayNextView;
 import com.example.fengkuangfantu.utils.Flip3dAnimation;
+import com.example.fengkuangfantu.utils.SoundPlay;
 import com.example.fengkuangfantu.utils.ToastUtil;
 
 public class FindImageActivity extends BaseActivity {
@@ -77,6 +78,7 @@ public class FindImageActivity extends BaseActivity {
 	private TextView turnNextTextView;
 	private TextView guanTextView;
 	private TextView timeTextView;
+    private SoundPlay mSoundPlay;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,21 +118,7 @@ public class FindImageActivity extends BaseActivity {
     	imageList.add(getResources().getStringArray(R.array.image_14));
     	guanNameList = getResources().getStringArray(R.array.guan_name);
     	defaultImageCover = getResources().getStringArray(R.array.default_image);
-    	initLevel(getResources().getString(R.string.turn_image_text)); 	
-    	   	
-		try {
-			AssetManager assetManager = getAssets();
-			AssetFileDescriptor fileDescriptor = assetManager
-					.openFd("youxi.mp3");
-			mediaPlayer.setDataSource(fileDescriptor.getFileDescriptor(),
-			fileDescriptor.getStartOffset(),
-			fileDescriptor.getLength());
-			mediaPlayer.prepare();
-			mediaPlayer.start();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    	initLevel(getResources().getString(R.string.turn_image_text));
 	}
 
     private void initClicks() {
@@ -355,5 +343,29 @@ public class FindImageActivity extends BaseActivity {
 //    	findProgressBar.setMax(time);		
 //		initLevel(text); 
 //	}
+	
+    @Override
+    protected void onResume() {
+        // TODO Auto-generated method stub
+        super.onResume();
+        mSoundPlay = new SoundPlay(this, SoundPlay.GAME_PART1);
+        mSoundPlay.startPlay();
+    }
+
+    @Override
+    protected void onPause() {
+        // TODO Auto-generated method stub
+        if (mSoundPlay != null) {
+            mSoundPlay.stopPlay();
+            mSoundPlay = null;
+        }
+        super.onPause();
+    }
+	
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		super.onDestroy();
+	}
 
 }
