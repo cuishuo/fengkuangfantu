@@ -20,23 +20,6 @@
     <string name="choose_image_title">请您找出：    </string>
     <string name="choose_image_all_sucess">恭喜，您已经通关！敬请期待~~</string>
     <string name="main_part1">第一部分</string> 
-    <string name="main_part2">第二部分</string>   
-    
-    <!-- Back Camera-->
-	<string name="BackCameraSummary">Back camera</string>
-	<string name="auto_focus">Focus</string>
-	<string name="take_picture">Take a picture</string>
-	<string name="re_take_picture">rephotograph</string>
-	<string name="dialog_success">Success</string>
-	<string name="dialog_error">Fail</string>
-	<string name="gsensor_reStart">Recalibrate</string>
-	<string name="reStart">restart test</string>
-	<string name="result_success">Success</string>
-	<string name="result_fail">Fail</string>
-    <string name="result_exit">exit</string>
-    <string name="auto_dialog_message">Success？</string>
-	<string name="error_starting">An error occurred during startup</string>
-	<string name="error_stopping">An error occurred during shutdown</string>
-	<string name="dialog_title">Test result</string>
+    <string name="main_part2">第二部分</string>      
 
 </resources>

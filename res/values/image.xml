@@ -20,12 +20,12 @@
     </string-array>
     
     <string-array name="image_3">                                            
-        <item>c_1</item>                
-        <item>c_2</item>
-        <item>c_3</item>
-        <item>c_4</item>
-        <item>c_5</item>
-        <item>c_6</item>
+        <item>a_1</item>                
+        <item>a_2</item>
+        <item>a_3</item>
+        <item>a_4</item>
+        <item>a_5</item>
+        <item>a_6</item>
     </string-array>
     
     <string-array name="image_4">                                            

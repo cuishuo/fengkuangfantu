@@ -144,16 +144,6 @@ public class MainActivity extends BaseActivity {
 	            mController.openShare(MainActivity.this, false);
 			}
 		});
-		settingImagebutton.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Intent intent = new Intent();
-				intent.setClass(MainActivity.this, BackCameraTest.class);
-				startActivity(intent);
-			}
-		});
 	}
 
 	private void tartClick() {
