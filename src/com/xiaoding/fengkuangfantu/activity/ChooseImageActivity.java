@@ -4,10 +4,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -286,8 +288,12 @@ public class ChooseImageActivity extends BaseActivity {
     protected void onResume() {
         // TODO Auto-generated method stub
         super.onResume();
-        mSoundPlayer = new SoundPlayer(this, SoundPlayer.GAME_MAIN);
-        mSoundPlayer.startPlay();
+        SharedPreferences settingsPfs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean soundsettings = settingsPfs.getBoolean("soundsettings", false);
+        if (soundsettings) {
+            mSoundPlayer = new SoundPlayer(this, SoundPlayer.GAME_MAIN);
+            mSoundPlayer.startPlay();
+        }
     }
 
     @Override

@@ -7,6 +7,7 @@ import android.R.integer;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.graphics.Color;
@@ -15,6 +16,7 @@ import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.SyncStateContract.Columns;
 import android.util.Log;
 import android.view.View;
@@ -349,8 +351,12 @@ public class FindImageActivity extends BaseActivity {
     protected void onResume() {
         // TODO Auto-generated method stub
         super.onResume();
-        mSoundPlayer = new SoundPlayer(this, SoundPlayer.GAME_PART1);
-        mSoundPlayer.startPlay();
+        SharedPreferences settingsPfs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean soundsettings = settingsPfs.getBoolean("soundsettings", false);
+        if (soundsettings) {
+            mSoundPlayer = new SoundPlayer(this, SoundPlayer.GAME_MAIN);
+            mSoundPlayer.startPlay();
+        }
     }
 
     @Override

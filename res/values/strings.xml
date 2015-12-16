@@ -23,10 +23,12 @@
     <string name="main_part2">第二部分</string>
     
     <string name="settings">设置</string>
-    <string name="settings_sound">设置</string>
-    <string name="settings_feedback">设置</string>
-    <string name="settings_evaluate">设置</string>
-    <string name="settings_update_version">设置</string>
-    <string name="settings_about_us">设置</string>
+    <string name="setting_personalize">个性化</string>
+    <string name="setting_about_app">关于应用</string>
+    <string name="settings_sound">音乐</string>
+    <string name="settings_feedback">我要吐槽</string>
+    <string name="settings_evaluate">给个好评</string>
+    <string name="settings_update_version">新版本检测</string>
+    <string name="settings_about_us">关于疯狂翻图</string>
 
 </resources>

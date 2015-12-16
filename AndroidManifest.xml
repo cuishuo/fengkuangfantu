@@ -17,13 +17,13 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
-        android:name="com.xiaoding.fengkuangfantu.CrazyApplication"
+        android:name=".CrazyApplication"
         android:allowBackup="true"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.xiaoding.fengkuangfantu.activity.WelcomeActivity"
+            android:name=".activity.WelcomeActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
@@ -34,21 +34,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.xiaoding.fengkuangfantu.activity.MainActivityy"
+            android:name=".activity.MainActivity"
             android:configChanges="orientation|keyboard|keyboardHidden|locale|fontScale|uiMode"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
         <activity
-            android:name="com.xiaoding.fengkuangfantu.activity.FindImageActivityy"
+            android:name=".activity.FindImageActivity"
             android:configChanges="orientation|keyboard|keyboardHidden|locale|fontScale|uiMode"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
         <activity
-            android:name="com.xiaoding.fengkuangfantu.activity.ChooseImageActivityy"
+            android:name=".activity.ChooseImageActivity"
             android:configChanges="orientation|keyboard|keyboardHidden|locale|fontScale|uiMode"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
@@ -56,7 +56,7 @@
         </activity>
         
         <activity
-            android:name="com.xiaoding.fengkuangfantu.activity.SettingsActivity"
+            android:name=".activity.SettingsActivity"
             android:configChanges="orientation|keyboard|keyboardHidden|locale|fontScale|uiMode"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" >

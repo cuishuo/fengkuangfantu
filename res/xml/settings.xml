@@ -2,30 +2,41 @@
 <PreferenceScreen 
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/settings">
+    
+    <PreferenceCategory
+        android:key="settngs_group1"
+        android:title="@string/setting_personalize" >
 
         <!-- soundsettings -->
-        <SwitchPreference 
-        android:key="soundsettings"
-                android:title="@string/settings_sound" />
+        <SwitchPreference
+            defaultValue="true"
+            android:key="soundsettings"
+            android:persistent="true"
+            android:title="@string/settings_sound" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="settngs_group2"
+        android:title="@string/setting_about_app" >
 
         <!-- feedbace -->
-        <Preference 
-        android:key="feedback" 
-                android:title="@string/settings_feedback" />
+        <Preference
+            android:key="feedback"
+            android:title="@string/settings_feedback" />
 
         <!-- evaluate -->
-        <Preference 
-        android:key="evaluate" 
-                android:title="@string/settings_evaluate" />
+        <Preference
+            android:key="evaluate"
+            android:title="@string/settings_evaluate" />
 
-        <!-- update version-->
-        <Preference 
-        android:key="update_version" 
-                android:title="@string/settings_update_version" />
+        <!-- update version -->
+        <Preference
+            android:key="update_version"
+            android:title="@string/settings_update_version" />
 
         <!-- adout us -->
-        <Preference 
-        android:key="adout_us" 
-                android:title="@string/settings_about_us" />
-
+        <Preference
+            android:key="about_us"
+            android:title="@string/settings_about_us" />
+    </PreferenceCategory>
 </PreferenceScreen>
