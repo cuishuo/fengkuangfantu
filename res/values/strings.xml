@@ -19,7 +19,14 @@
     <string name="dialog_cancel">取消</string>
     <string name="choose_image_title">请您找出：    </string>
     <string name="choose_image_all_sucess">恭喜，您已经通关！敬请期待~~</string>
-    <string name="main_part1">第一部分</string> 
-    <string name="main_part2">第二部分</string>      
+    <string name="main_part1">第一部分</string>
+    <string name="main_part2">第二部分</string>
+    
+    <string name="settings">设置</string>
+    <string name="settings_sound">设置</string>
+    <string name="settings_feedback">设置</string>
+    <string name="settings_evaluate">设置</string>
+    <string name="settings_update_version">设置</string>
+    <string name="settings_about_us">设置</string>
 
 </resources>

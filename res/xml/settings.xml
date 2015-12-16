@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/settings">
+
+        <!-- soundsettings -->
+        <SwitchPreference 
+        android:key="soundsettings"
+                android:title="@string/settings_sound" />
+
+        <!-- feedbace -->
+        <Preference 
+        android:key="feedback" 
+                android:title="@string/settings_feedback" />
+
+        <!-- evaluate -->
+        <Preference 
+        android:key="evaluate" 
+                android:title="@string/settings_evaluate" />
+
+        <!-- update version-->
+        <Preference 
+        android:key="update_version" 
+                android:title="@string/settings_update_version" />
+
+        <!-- adout us -->
+        <Preference 
+        android:key="adout_us" 
+                android:title="@string/settings_about_us" />
+
+</PreferenceScreen>
