@@ -7,7 +7,7 @@ import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
-import com.example.fengkuangfantu.R;
+import com.xiaoding.fengkuangfantu.R;
 
 public class WelcomeActivity extends BaseActivity {
 	

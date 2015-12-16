@@ -19,7 +19,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 
-import com.example.fengkuangfantu.R;
+import com.xiaoding.fengkuangfantu.R;
 import com.xiaoding.fengkuangfantu.adapter.ChooseAdapter;
 import com.xiaoding.fengkuangfantu.adapter.FindAdapter;
 import com.xiaoding.fengkuangfantu.service.entity.FindEntity;

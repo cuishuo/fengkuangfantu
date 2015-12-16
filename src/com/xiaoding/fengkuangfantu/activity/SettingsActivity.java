@@ -1,7 +1,7 @@
 package com.xiaoding.fengkuangfantu.activity;
 
 
-import com.example.fengkuangfantu.R;
+import com.xiaoding.fengkuangfantu.R;
 
 import android.os.Bundle;
 import android.preference.Preference;

@@ -23,7 +23,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.fengkuangfantu.R;
+import com.xiaoding.fengkuangfantu.R;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.controller.UMServiceFactory;
 import com.umeng.socialize.controller.UMSocialService;
@@ -115,6 +115,19 @@ public class MainActivity extends BaseActivity {
 				startActivity(intent);
 			}
 		});
+		
+		settingImagebutton.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                Intent intent = new Intent();
+                intent.setClass(getApplicationContext(),
+                        SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
+		
 		aboutImagebutton.setOnClickListener(new OnClickListener() {
 			
 			@Override

@@ -2,7 +2,7 @@ package com.xiaoding.fengkuangfantu.adapter;
 
 import java.util.ArrayList;
 
-import com.example.fengkuangfantu.R;
+import com.xiaoding.fengkuangfantu.R;
 import com.xiaoding.fengkuangfantu.service.entity.FindEntity;
 import com.xiaoding.fengkuangfantu.utils.DisplayNextView;
 import com.xiaoding.fengkuangfantu.utils.Flip3dAnimation;
