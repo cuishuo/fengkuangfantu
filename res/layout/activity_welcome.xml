@@ -4,43 +4,35 @@
     android:layout_height="match_parent"
     android:background="@color/white" >
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout1"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true" >
-        
-        <ImageView
-            android:id="@+id/logoImageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="15dp"
-            android:src="@drawable/logo"
-            android:contentDescription="@null" />
+        android:layout_centerInParent="true"
+        android:contentDescription="@null"
+        android:src="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/teamTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:text="@string/team_name"
+        android:textStyle="italic"
+        android:textColor="@color/greytext"
+        android:textSize="15sp" />
 
         <TextView
-            android:id="@+id/titleTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/logoImageView"
-            android:text="@string/app_name"
-            android:textColor="@color/black"
-            android:textSize="40sp" />
-
-        <TextView
-            android:id="@+id/desTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@id/titleTextView"
-            android:layout_marginRight="40dp"
-            android:layout_marginTop="15dp"
-            android:text="@string/team_name"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-
-    </RelativeLayout>
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/teamTextView"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/app_name"
+        android:textColor="@color/black"
+        android:textSize="30sp" />
 
 </RelativeLayout>
