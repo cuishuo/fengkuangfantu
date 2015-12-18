@@ -2,6 +2,38 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
-    
+
+    <TextView
+        android:id="@+id/part1record"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/main_part1" />
+
+    <GridView
+        android:id="@+id/part1GridView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="20dp"
+        android:numColumns="4" />
+
+    <TextView
+        android:id="@+id/part2record"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/part1GridView"
+        android:layout_marginTop="20dp"
+        android:text="@string/main_part2" />
+
+    <TextView
+        android:id="@+id/part2TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/part2record"
+        android:layout_marginTop="20dp"
+        android:text="@string/part2record" />
 
 </RelativeLayout>

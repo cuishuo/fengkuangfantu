@@ -119,7 +119,7 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
-        
+
         recordImagebutton.setOnClickListener(new OnClickListener() {
 
             @Override

@@ -22,6 +22,9 @@
     <string name="main_part1">黄金十二宫</string>
     <string name="main_part2">极限挑战</string>
 
+    <string name="record">战绩</string>
+    <string name="part2record">最高得分</string>
+
     <string name="settings">设置</string>
     <string name="setting_personalize">个性化</string>
     <string name="setting_about_app">关于应用</string>
