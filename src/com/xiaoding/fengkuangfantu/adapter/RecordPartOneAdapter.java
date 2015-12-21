@@ -19,11 +19,13 @@ public class RecordPartOneAdapter extends BaseAdapter {
     private ArrayList<String> nameList;
     private GridView gridView;
     private ViewHolder holder;
+    private int record;
 
-    public RecordPartOneAdapter(Context context, ArrayList<String> nameList, GridView gridView) {
+    public RecordPartOneAdapter(Context context, ArrayList<String> nameList, GridView gridView, int record) {
         this.context = context;
         this.nameList = nameList;
         this.gridView = gridView;
+        this.record = record;
     }
 
     @Override
@@ -56,6 +58,11 @@ public class RecordPartOneAdapter extends BaseAdapter {
         }
         holder.part1TextView = (TextView) convertView.findViewById(R.id.part1TextView);
         String name = nameList.get(position);
+        if (position + 1 <= record) {
+            holder.part1TextView.setTextColor(context.getResources().getColor(R.color.hotel_top_bar));
+        } else {
+            holder.part1TextView.setTextColor(context.getResources().getColor(R.color.greytext));
+        }
         holder.part1TextView.setText(name);
         return convertView;
     }

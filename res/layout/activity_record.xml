@@ -48,15 +48,32 @@
         android:textColor="@color/dimgrey"
         android:text="@string/main_part2" />
 
-    <TextView
-        android:id="@+id/part2TextView"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/part2record"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:textSize="18sp"
-        android:textColor="@color/hotel_top_bar"
-        android:text="@string/part2record" />
+        android:layout_marginTop="20dp" 
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/part2TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="@string/part2record"
+            android:textColor="@color/hotel_top_bar"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/part2ValueTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:text="100"
+            android:textStyle="bold|italic"
+            android:textColor="@color/blue_name"
+            android:textSize="25sp" />
+    </LinearLayout>
 
 </RelativeLayout>
