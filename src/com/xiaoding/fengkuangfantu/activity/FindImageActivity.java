@@ -366,6 +366,10 @@ public class FindImageActivity extends BaseActivity {
             mSoundPlayer.stopPlay();
             mSoundPlayer = null;
         }
+        mHandler.removeCallbacks(timerRunnable);
+		turnNextTextView.setVisibility(View.VISIBLE);
+		processRelativeLayout.setVisibility(View.GONE);
+		turnImageTextView.setVisibility(View.GONE);
         super.onPause();
     }
 	
