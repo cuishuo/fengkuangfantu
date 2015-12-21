@@ -8,24 +8,44 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        android:textColor="@color/dimgrey"
         android:text="@string/main_part1" />
 
     <GridView
         android:id="@+id/part1GridView"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/part1record"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
+        android:verticalSpacing="10dp"
         android:numColumns="4" />
+
+    <View
+        android:id="@+id/recordSepatationLine"
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_below="@id/part1GridView"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/mine_gray" />
 
     <TextView
         android:id="@+id/part2record"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/part1GridView"
+        android:layout_below="@id/recordSepatationLine"
         android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        android:textColor="@color/dimgrey"
         android:text="@string/main_part2" />
 
     <TextView
@@ -34,6 +54,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/part2record"
         android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="18sp"
+        android:textColor="@color/hotel_top_bar"
         android:text="@string/part2record" />
 
 </RelativeLayout>

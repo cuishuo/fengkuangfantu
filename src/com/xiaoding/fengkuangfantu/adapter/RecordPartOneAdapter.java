@@ -29,7 +29,7 @@ public class RecordPartOneAdapter extends BaseAdapter {
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
-        return 0;
+        return nameList.size();
     }
 
     @Override
@@ -56,7 +56,6 @@ public class RecordPartOneAdapter extends BaseAdapter {
         }
         holder.part1TextView = (TextView) convertView.findViewById(R.id.part1TextView);
         String name = nameList.get(position);
-        Log.d("cuishuo","name "+name);
         holder.part1TextView.setText(name);
         return convertView;
     }
@@ -64,5 +63,4 @@ public class RecordPartOneAdapter extends BaseAdapter {
     private class ViewHolder {
         public TextView part1TextView;
     }
-
 }

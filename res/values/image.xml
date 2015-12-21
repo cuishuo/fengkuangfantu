@@ -1,160 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    
-    <string-array name="image_1">                                            
-        <item>a_1</item>                
+
+    <string-array name="image_1">
+        <item>a_1</item>
         <item>a_2</item>
         <item>a_3</item>
         <item>a_4</item>
         <item>a_5</item>
         <item>a_6</item>
     </string-array>
-    
-    <string-array name="image_2">                                            
-        <item>b_1</item>                
+
+    <string-array name="image_2">
+        <item>b_1</item>
         <item>b_2</item>
         <item>b_3</item>
         <item>b_4</item>
         <item>b_5</item>
         <item>b_6</item>
     </string-array>
-    
-    <string-array name="image_3">                                            
-        <item>a_1</item>                
+
+    <string-array name="image_3">
+        <item>a_1</item>
         <item>a_2</item>
         <item>a_3</item>
         <item>a_4</item>
         <item>a_5</item>
         <item>a_6</item>
     </string-array>
-    
-    <string-array name="image_4">                                            
-        <item>a_1</item>                
+
+    <string-array name="image_4">
+        <item>a_1</item>
         <item>a_2</item>
         <item>a_3</item>
         <item>a_4</item>
         <item>a_5</item>
         <item>a_6</item>
     </string-array>
-    
-    <string-array name="image_5">                                            
-        <item>a_1</item>                
+
+    <string-array name="image_5">
+        <item>a_1</item>
         <item>a_2</item>
         <item>a_3</item>
         <item>a_4</item>
         <item>a_5</item>
         <item>a_6</item>
     </string-array>
-    
-    <string-array name="image_6">                                            
-        <item>a_1</item>                
+
+    <string-array name="image_6">
+        <item>a_1</item>
         <item>a_2</item>
         <item>a_3</item>
         <item>a_4</item>
         <item>a_5</item>
         <item>a_6</item>
     </string-array>
-    
-    <string-array name="image_7">                                            
-        <item>a_1</item>                
+
+    <string-array name="image_7">
+        <item>a_1</item>
         <item>a_2</item>
         <item>a_3</item>
         <item>a_4</item>
         <item>a_5</item>
         <item>a_6</item>
     </string-array>
-    
-    <string-array name="image_8">                                            
-        <item>a_1</item>                
+
+    <string-array name="image_8">
+        <item>a_1</item>
         <item>a_2</item>
         <item>a_3</item>
         <item>a_4</item>
         <item>a_5</item>
         <item>a_6</item>
     </string-array>
-    
-    <string-array name="image_9">                                            
-        <item>a_1</item>                
+
+    <string-array name="image_9">
+        <item>a_1</item>
         <item>a_2</item>
         <item>a_3</item>
         <item>a_4</item>
         <item>a_5</item>
         <item>a_6</item>
     </string-array>
-    
-    <string-array name="image_10">                                            
-        <item>a_1</item>                
+
+    <string-array name="image_10">
+        <item>a_1</item>
         <item>a_2</item>
         <item>a_3</item>
         <item>a_4</item>
         <item>a_5</item>
         <item>a_6</item>
     </string-array>
-    
-    <string-array name="image_11">                                            
-        <item>a_1</item>                
+
+    <string-array name="image_11">
+        <item>a_1</item>
         <item>a_2</item>
         <item>a_3</item>
         <item>a_4</item>
         <item>a_5</item>
         <item>a_6</item>
     </string-array>
-    
-    <string-array name="image_12">                                            
-        <item>a_1</item>                
+
+    <string-array name="image_12">
+        <item>a_1</item>
         <item>a_2</item>
         <item>a_3</item>
         <item>a_4</item>
         <item>a_5</item>
         <item>a_6</item>
     </string-array>
-    
-    <string-array name="image_13">                                            
-        <item>a_1</item>                
+
+    <string-array name="image_13">
+        <item>a_1</item>
         <item>a_2</item>
         <item>a_3</item>
         <item>a_4</item>
         <item>a_5</item>
         <item>a_6</item>
     </string-array>
-    
-    <string-array name="image_14">                                            
-        <item>a_1</item>                
+
+    <string-array name="image_14">
+        <item>a_1</item>
         <item>a_2</item>
         <item>a_3</item>
         <item>a_4</item>
         <item>a_5</item>
         <item>a_6</item>
     </string-array>
-    
-    <string-array name="guan_name">                                            
-        <item>白羊宫    1th</item>                
+
+    <string-array name="guan_name">
+        <item>白羊宫    1th</item>
         <item>金牛宫    2th</item>
         <item>双子宫    3th</item>
         <item>巨蟹宫    4th</item>
         <item>狮子宫    5th</item>
         <item>处女宫    6th</item>
-        <item>天秤宫    7th</item>                
+        <item>天秤宫    7th</item>
         <item>天蝎宫    8th</item>
         <item>射手宫    9th</item>
         <item>摩羯宫    10th</item>
         <item>水瓶宫    11th</item>
         <item>双鱼宫    12th</item>
     </string-array>
-    
-    <string-array name="default_image">                                            
-        <item>baiyang</item>                
+
+    <string-array name="record_guan_name">
+        <item>白羊宫</item>
+        <item>金牛宫</item>
+        <item>双子宫</item>
+        <item>巨蟹宫</item>
+        <item>狮子宫</item>
+        <item>处女宫</item>
+        <item>天秤宫</item>
+        <item>天蝎宫</item>
+        <item>射手宫</item>
+        <item>摩羯宫</item>
+        <item>水瓶宫</item>
+        <item>双鱼宫</item>
+    </string-array>
+
+    <string-array name="default_image">
+        <item>baiyang</item>
         <item>jinniu</item>
         <item>shuangzi</item>
         <item>juxie</item>
         <item>shizi</item>
         <item>chunv</item>
-        <item>tiancheng</item>                
+        <item>tiancheng</item>
         <item>tianxie</item>
         <item>sheshou</item>
         <item>mejie</item>
         <item>shuiping</item>
         <item>shuangyu</item>
     </string-array>
-    
+
 </resources>

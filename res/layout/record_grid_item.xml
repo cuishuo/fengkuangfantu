@@ -3,11 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-        <TextView
+    <TextView
         android:id="@+id/part1TextView"
-        android:background="@drawable/find_turn_image_text_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="@drawable/record_name"
         android:gravity="center"
         android:textColor="@color/hotel_top_bar"
-        android:textSize="14sp" />
+        android:textSize="17sp" />
 
 </RelativeLayout>
