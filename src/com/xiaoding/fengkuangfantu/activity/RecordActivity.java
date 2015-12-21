@@ -29,7 +29,7 @@ public class RecordActivity extends Activity{
 
     private void initViews() {
         // TODO Auto-generated method stub
-        guanname = getResources().getStringArray(R.array.guan_name);
+        guanname = getResources().getStringArray(R.array.record_guan_name);
         nameList = new ArrayList<String>(Arrays.asList(guanname));
         mRecordPartOneAdapter = new RecordPartOneAdapter(getApplicationContext(), nameList, part1GridView);
         part1GridView.setAdapter(mRecordPartOneAdapter);
