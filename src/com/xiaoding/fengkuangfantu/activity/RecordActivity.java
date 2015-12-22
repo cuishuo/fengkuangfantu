@@ -25,7 +25,7 @@ public class RecordActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_record);
+        setContentView(R.layout.record);
         part1GridView = (GridView) findViewById(R.id.part1GridView);
         part2ValueTextView = (TextView) findViewById(R.id.part2ValueTextView);
         initViews();

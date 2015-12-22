@@ -34,4 +34,10 @@
     <string name="settings_update_version">新版本检测</string>
     <string name="settings_about_us">关于疯狂翻图</string>
 
+    <string name="settings_update_version_newest">当前是最新版本^_^</string>
+
+    <string name="settings_feedback_content">我们的成长离不开您的支持</string>
+    <string name="settings_feedback_contact">微信/QQ/手机号（方便我们的沟通）</string>
+    <string name="settings_feedback_send">发给我们</string>
+
 </resources>

@@ -2,7 +2,9 @@ package com.xiaoding.fengkuangfantu.activity;
 
 
 import com.xiaoding.fengkuangfantu.R;
+import com.xiaoding.fengkuangfantu.utils.ToastUtil;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.Preference;
@@ -33,14 +35,31 @@ public class SettingsActivity extends PreferenceActivity implements OnPreference
     private void initPreferences() {
         mSoundPreference = (SwitchPreference) findPreference("soundsettings");
         mfeedbacePreference = (Preference) findPreference("feedback");
-        mevaluatePreference = (Preference) findPreference("settings_evaluate");
-        mupdateVersionPreference = (Preference) findPreference("settings_update_version");
+        mevaluatePreference = (Preference) findPreference("evaluate");
+        mupdateVersionPreference = (Preference) findPreference("update_version");
         maboutUsPreference = (Preference) findPreference("about_us");
+        mfeedbacePreference.setOnPreferenceClickListener(this);
+        mevaluatePreference.setOnPreferenceClickListener(this);
+        mupdateVersionPreference.setOnPreferenceClickListener(this);
+        maboutUsPreference.setOnPreferenceClickListener(this);
     }
 
     @Override
-    public boolean onPreferenceClick(Preference arg0) {
+    public boolean onPreferenceClick(Preference preference) {
         // TODO Auto-generated method stub
+        if (preference == mfeedbacePreference) {
+            Intent intent = new Intent(getApplication(), SettingsFeedbackActivity.class);
+            startActivity(intent);
+        }
+        if (preference == mevaluatePreference) {
+            
+        }
+        if (preference == mupdateVersionPreference) {
+            ToastUtil.show(this, getResources().getString(R.string.settings_update_version_newest));
+        }
+        if (preference == maboutUsPreference) {
+            
+        }
         return false;
     }
 

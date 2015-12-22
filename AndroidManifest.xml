@@ -69,6 +69,14 @@
             android:theme="@style/pre_NoTitleBar" >
         </activity>
 
+        <activity
+            android:name=".activity.SettingsFeedbackActivity"
+            android:label="@string/settings_feedback" 
+            android:configChanges="orientation|keyboard|keyboardHidden|locale|fontScale|uiMode"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+        </activity>
+
         <meta-data
             android:name="UMENG_APPKEY"
             android:value="563ac34767e58e57230001d8" >

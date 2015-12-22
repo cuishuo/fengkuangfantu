@@ -19,7 +19,7 @@
         android:key="settngs_group2"
         android:title="@string/setting_about_app" >
 
-        <!-- feedbace -->
+        <!-- feedback -->
         <Preference
             android:key="feedback"
             android:title="@string/settings_feedback" />
