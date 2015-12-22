@@ -11,6 +11,7 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.preference.SwitchPreference;
 import android.util.Log;
+import android.view.Window;
 
 public class SettingsActivity extends PreferenceActivity implements OnPreferenceClickListener {
 
@@ -23,8 +24,9 @@ public class SettingsActivity extends PreferenceActivity implements OnPreference
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
-        super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.settings);
+        super.onCreate(savedInstanceState);             
+        addPreferencesFromResource(R.xml.settings);  
+        setContentView(R.layout.setting);
         initPreferences();
     }
 

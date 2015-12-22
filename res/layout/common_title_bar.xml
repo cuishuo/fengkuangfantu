@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/title_bar" >
+
+    <ImageView
+        android:id="@+id/iv_back"
+        style="@style/title_bar_back_image"
+        android:contentDescription="@null"
+        android:src="@drawable/common_back" />
+
+    <TextView
+        android:id="@+id/titleTextView"
+        style="@style/title_bar_title_txt"
+        android:text="@string/settings" />
+
+</RelativeLayout>

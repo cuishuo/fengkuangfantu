@@ -156,4 +156,5 @@
     <color name="user_trip_content">#747474</color>
     
     <color name="main_color">#edc3ed</color>
+    <color name="title_bar_color">#d2fefe</color>
 </resources>
