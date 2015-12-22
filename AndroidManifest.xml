@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="18"
+        android:minSdkVersion="14"
         android:targetSdkVersion="21" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -38,21 +38,21 @@
             android:configChanges="orientation|keyboard|keyboardHidden|locale|fontScale|uiMode"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
             android:name=".activity.FindImageActivity"
             android:configChanges="orientation|keyboard|keyboardHidden|locale|fontScale|uiMode"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
             android:name=".activity.ChooseImageActivity"
             android:configChanges="orientation|keyboard|keyboardHidden|locale|fontScale|uiMode"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
             android:name=".activity.RecordActivity"
@@ -66,7 +66,7 @@
             android:configChanges="orientation|keyboard|keyboardHidden|locale|fontScale|uiMode"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:theme="@style/pre_NoTitleBar" >
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
         </activity>
 
         <activity
