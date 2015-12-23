@@ -10,7 +10,6 @@
 
     <TextView
         android:id="@+id/titleTextView"
-        style="@style/title_bar_title_txt"
-        android:text="@string/settings" />
+        style="@style/title_bar_title_txt" />
 
 </RelativeLayout>

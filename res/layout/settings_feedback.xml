@@ -3,8 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
+
+     <include
+        android:id="@+id/topView"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        layout="@layout/common_title_bar" />
+
     <EditText
+        android:id="@+id/feedback_content"
         android:layout_width="match_parent"
         android:layout_height="140dp"
         android:layout_marginLeft="15dp"
@@ -18,17 +25,19 @@
         android:hint="@string/settings_feedback_content" />
 
     <EditText
+        android:id="@+id/feedback_contact"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginTop="15dp"
+        android:gravity="fill_vertical"
         android:padding="10dp"
         android:background="@drawable/feedback_edittext"
         android:textSize="15sp"
         android:textColor="@color/dimgrey"
         android:hint="@string/settings_feedback_contact" />
-    
+
     <Button
         android:id="@+id/send"
         android:layout_width="wrap_content"
@@ -43,6 +52,6 @@
         android:paddingBottom="10dp"
         android:textSize="15sp"
         android:textColor="@color/hotel_top_bar"
-        android:background="@drawable/record_name"
+        android:background="@drawable/button_send"
         android:text="@string/settings_feedback_send" />
 </LinearLayout>

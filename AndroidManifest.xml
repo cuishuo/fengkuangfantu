@@ -59,7 +59,8 @@
             android:label="@string/record" 
             android:configChanges="orientation|keyboard|keyboardHidden|locale|fontScale|uiMode"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
         </activity>
         <activity
             android:name=".activity.SettingsActivity"
@@ -70,11 +71,20 @@
         </activity>
 
         <activity
-            android:name=".activity.SettingsFeedbackActivity"
+            android:name=".activity.FeedbackActivity"
             android:label="@string/settings_feedback" 
             android:configChanges="orientation|keyboard|keyboardHidden|locale|fontScale|uiMode"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+        </activity>
+
+        <activity
+            android:name=".activity.AboutAppActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|locale|fontScale|uiMode"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
         </activity>
 
         <meta-data

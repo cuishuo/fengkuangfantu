@@ -13,7 +13,11 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.preference.SwitchPreference;
 import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.Window;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class SettingsActivity extends PreferenceActivity implements OnPreferenceClickListener {
 
@@ -22,13 +26,26 @@ public class SettingsActivity extends PreferenceActivity implements OnPreference
     private Preference mevaluatePreference;
     private Preference mupdateVersionPreference;
     private Preference maboutUsPreference;
-    
+    private TextView titleTextView;
+    private ImageView returnImageView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
-        super.onCreate(savedInstanceState);             
-        addPreferencesFromResource(R.xml.settings);  
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.setting);
+        titleTextView = (TextView) findViewById(R.id.titleTextView);
+        titleTextView.setText(getResources().getString(R.string.settings));
+        returnImageView = (ImageView) findViewById(R.id.iv_back);
+        addPreferencesFromResource(R.xml.settings);
+        returnImageView.setOnClickListener(new OnClickListener() {
+            
+            @Override
+            public void onClick(View arg0) {
+                // TODO Auto-generated method stub
+                finish();
+            }
+        });
         initPreferences();
     }
 
@@ -48,7 +65,7 @@ public class SettingsActivity extends PreferenceActivity implements OnPreference
     public boolean onPreferenceClick(Preference preference) {
         // TODO Auto-generated method stub
         if (preference == mfeedbacePreference) {
-            Intent intent = new Intent(getApplication(), SettingsFeedbackActivity.class);
+            Intent intent = new Intent(getApplication(), FeedbackActivity.class);
             startActivity(intent);
         }
         if (preference == mevaluatePreference) {
@@ -58,7 +75,8 @@ public class SettingsActivity extends PreferenceActivity implements OnPreference
             ToastUtil.show(this, getResources().getString(R.string.settings_update_version_newest));
         }
         if (preference == maboutUsPreference) {
-            
+            Intent intent = new Intent(getApplication(), AboutAppActivity.class);
+            startActivity(intent);
         }
         return false;
     }

@@ -10,7 +10,10 @@ import com.xiaoding.fengkuangfantu.utils.CrazyPreference;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class RecordActivity extends Activity{
@@ -20,15 +23,28 @@ public class RecordActivity extends Activity{
     private ArrayList<String> nameList;
     private String[] guanname;
     private RecordPartOneAdapter mRecordPartOneAdapter;
+    private TextView titleTextView;
+    private ImageView returnButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.record);
+        titleTextView = (TextView) findViewById(R.id.titleTextView);
+        titleTextView.setText(getResources().getString(R.string.record));
         part1GridView = (GridView) findViewById(R.id.part1GridView);
         part2ValueTextView = (TextView) findViewById(R.id.part2ValueTextView);
+        returnButton = (ImageView) findViewById(R.id.iv_back);
         initViews();
+        returnButton.setOnClickListener(new OnClickListener() {
+            
+            @Override
+            public void onClick(View arg0) {
+                // TODO Auto-generated method stub
+                finish();
+            }
+        });
     }
 
     private void initViews() {
