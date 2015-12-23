@@ -3,14 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+    <include
+        android:id="@+id/topView"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        layout="@layout/common_title_bar" />
+
     <TextView
         android:id="@+id/part1record"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/topView"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="italic"
         android:textColor="@color/dimgrey"
         android:text="@string/main_part1" />
@@ -43,7 +49,7 @@
         android:layout_below="@id/recordSepatationLine"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="italic"
         android:textColor="@color/dimgrey"
         android:text="@string/main_part2" />
@@ -62,7 +68,7 @@
             android:layout_marginLeft="20dp"
             android:text="@string/part2record"
             android:textColor="@color/hotel_top_bar"
-            android:textSize="18sp" />
+            android:textSize="17sp" />
 
         <TextView
             android:id="@+id/part2ValueTextView"
@@ -70,7 +76,6 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
             android:gravity="center"
-            android:text="100"
             android:textStyle="bold|italic"
             android:textColor="@color/blue_name"
             android:textSize="25sp" />
