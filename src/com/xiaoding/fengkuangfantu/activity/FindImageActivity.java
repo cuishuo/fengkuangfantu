@@ -149,6 +149,7 @@ public class FindImageActivity extends BaseActivity {
 						findAdapter.notifyDataSetChanged();
 						processRelativeLayout.setVisibility(View.VISIBLE);
 						turnImageTextView.setVisibility(View.GONE);
+						timeTextView.setVisibility(View.GONE);
 						countDown();
 					}
 				}, 2000);
@@ -206,6 +207,7 @@ public class FindImageActivity extends BaseActivity {
 							ToastUtil.threadShow(FindImageActivity.this, mHandler, R.string.turn_image_sucess);
 							mHandler.removeCallbacks(timerRunnable);
 							turnNextTextView.setVisibility(View.VISIBLE);
+							timeTextView.setVisibility(View.VISIBLE);
 							processRelativeLayout.setVisibility(View.GONE);
 							turnImageTextView.setVisibility(View.GONE);
 							if (currentLevel == levelNum) {
@@ -304,6 +306,7 @@ public class FindImageActivity extends BaseActivity {
     	findProgressBar.setMax(time);		
 		turnImageTextView.setText(text);
 		turnImageTextView.setVisibility(View.VISIBLE);
+		timeTextView.setVisibility(View.VISIBLE);
 		processRelativeLayout.setVisibility(View.GONE);
 		turnImageTextView.setTextColor(ColorUtils.getCommonGreen());
 		turnImageTextView.setClickable(true);
