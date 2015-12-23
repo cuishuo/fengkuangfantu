@@ -39,5 +39,10 @@
     <string name="settings_feedback_content">我们的成长离不开您的支持</string>
     <string name="settings_feedback_contact">微信/QQ/手机号（方便我们的沟通）</string>
     <string name="settings_feedback_send">发给我们</string>
+    
+    <string name="settings_about_us_label">疯狂翻图  疯狂到极致</string>
+    <string name="settings_about_us_version">版本  V1.5.0</string>
+    <string name="settings_about_us_content">感谢分享推荐朋友，我们的疯狂刚刚开始</string>
+    <string name="settings_about_us_vendor">Copyright by 丁丁工作室</string>
 
 </resources>

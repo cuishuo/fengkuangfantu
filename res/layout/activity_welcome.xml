@@ -24,7 +24,7 @@
         android:textColor="@color/greytext"
         android:textSize="15sp" />
 
-        <TextView
+    <TextView
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

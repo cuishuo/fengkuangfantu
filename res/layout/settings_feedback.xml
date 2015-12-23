@@ -29,12 +29,13 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginTop="15dp"
+        android:gravity="fill_vertical"
         android:padding="10dp"
         android:background="@drawable/feedback_edittext"
         android:textSize="15sp"
         android:textColor="@color/dimgrey"
         android:hint="@string/settings_feedback_contact" />
-    
+
     <Button
         android:id="@+id/send"
         android:layout_width="wrap_content"

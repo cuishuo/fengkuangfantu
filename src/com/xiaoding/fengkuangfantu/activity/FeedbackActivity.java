@@ -9,9 +9,10 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class SettingsFeedbackActivity extends Activity {
+public class FeedbackActivity extends Activity {
 
     private TextView titleTextView;
+    private ImageView returnImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +21,7 @@ public class SettingsFeedbackActivity extends Activity {
         setContentView(R.layout.settings_feedback);
         titleTextView = (TextView) findViewById(R.id.titleTextView);
         titleTextView.setText(getResources().getString(R.string.settings_feedback));
-        ImageView returnImageView = (ImageView) findViewById(R.id.iv_back);
+        returnImageView = (ImageView) findViewById(R.id.iv_back);
         returnImageView.setOnClickListener(new OnClickListener() {
 
             @Override

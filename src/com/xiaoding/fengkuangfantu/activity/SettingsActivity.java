@@ -65,7 +65,7 @@ public class SettingsActivity extends PreferenceActivity implements OnPreference
     public boolean onPreferenceClick(Preference preference) {
         // TODO Auto-generated method stub
         if (preference == mfeedbacePreference) {
-            Intent intent = new Intent(getApplication(), SettingsFeedbackActivity.class);
+            Intent intent = new Intent(getApplication(), FeedbackActivity.class);
             startActivity(intent);
         }
         if (preference == mevaluatePreference) {
@@ -75,7 +75,8 @@ public class SettingsActivity extends PreferenceActivity implements OnPreference
             ToastUtil.show(this, getResources().getString(R.string.settings_update_version_newest));
         }
         if (preference == maboutUsPreference) {
-            
+            Intent intent = new Intent(getApplication(), AboutAppActivity.class);
+            startActivity(intent);
         }
         return false;
     }
