@@ -232,8 +232,8 @@ public class MainActivity extends BaseActivity {
     private void addWXPlatform() {
         // 注意：在微信授权的时候，必须传递appSecret
         // wx967daebe835fbeac是你在微信开发平台注册应用的AppID, 这里需要替换成你注册的AppID
-        String appId = "wx99fe8c1023c8bc7a";
-        String appSecret = "d4624c36b6795d1d99dcf0547af5443d";
+        String appId = "wx3868255817265cbd";
+        String appSecret = "5e1814cef04e3fe3f33a10686d200a50";
         // 添加微信平台
         UMWXHandler wxHandler = new UMWXHandler(MainActivity.this, appId,
                 appSecret);
