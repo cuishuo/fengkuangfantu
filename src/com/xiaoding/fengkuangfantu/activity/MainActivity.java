@@ -8,7 +8,9 @@ import android.content.SharedPreferences;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -29,9 +31,14 @@ import com.xiaoding.fengkuangfantu.R;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.controller.UMServiceFactory;
 import com.umeng.socialize.controller.UMSocialService;
+import com.umeng.socialize.media.QQShareContent;
+import com.umeng.socialize.media.QZoneShareContent;
 import com.umeng.socialize.media.UMImage;
+import com.umeng.socialize.sso.QZoneSsoHandler;
+import com.umeng.socialize.sso.UMQQSsoHandler;
 import com.umeng.socialize.weixin.controller.UMWXHandler;
 import com.umeng.socialize.weixin.media.CircleShareContent;
+import com.umeng.socialize.weixin.media.WeiXinShareContent;
 import com.xiaoding.fengkuangfantu.adapter.FindAdapter;
 import com.xiaoding.fengkuangfantu.adapter.MainImageAdapter;
 import com.xiaoding.fengkuangfantu.service.entity.FindEntity;
@@ -39,6 +46,7 @@ import com.xiaoding.fengkuangfantu.utils.DisplayNextView;
 import com.xiaoding.fengkuangfantu.utils.Flip3dAnimation;
 import com.xiaoding.fengkuangfantu.utils.ProcessImageUtil;
 import com.xiaoding.fengkuangfantu.utils.SoundPlayer;
+import com.xiaoding.fengkuangfantu.utils.StringUtils;
 import com.xiaoding.fengkuangfantu.utils.ToastUtil;
 
 public class MainActivity extends BaseActivity {
@@ -82,6 +90,7 @@ public class MainActivity extends BaseActivity {
         initClicks();
         // tartClick();
         addWXPlatform();
+        addQQQZonePlatform();
     }
 
     private void initViews() {
@@ -148,27 +157,9 @@ public class MainActivity extends BaseActivity {
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 // 设置朋友圈分享的内容
-                View view = getWindow().getDecorView();
-                view.setDrawingCacheEnabled(true);
-                view.buildDrawingCache();
-                Bitmap bitmap = view.getDrawingCache();
-                Log.d(TAG, "bitmap .... =" + bitmap);
-                Bitmap thumbBmp = ProcessImageUtil.cutThumb(bitmap, THUMB_SIZE,
-                        THUMB_SIZE);
-                view.destroyDrawingCache();
-                // UMImage urlImage = new UMImage(MainActivity.this,
-                // "http://www.umeng.com/images/pic/social/integrated_3.png");
-                UMImage urlImage = new UMImage(MainActivity.this, thumbBmp);
-                CircleShareContent circleMedia = new CircleShareContent();
-                circleMedia
-                        .setShareContent("来自友盟社会化组件（SDK）让移动应用快速整合社交分享功能-朋友圈。http://www.umeng.com/social");
-                circleMedia.setTitle("疯狂拼图-朋友圈");
-                circleMedia.setShareMedia(urlImage);
-                // circleMedia.setShareMedia(uMusic);
-                // circleMedia.setShareMedia(video);
-                circleMedia.setTargetUrl("http://www.umeng.com/social");
-                mController.setShareMedia(circleMedia);
-                mController.getConfig().setPlatforms(SHARE_MEDIA.WEIXIN_CIRCLE);
+            	initShareData();
+                mController.getConfig().setPlatforms(SHARE_MEDIA.WEIXIN_CIRCLE, SHARE_MEDIA.WEIXIN,
+                		SHARE_MEDIA.QQ, SHARE_MEDIA.QZONE);
                 mController.openShare(MainActivity.this, false);
             }
         });
@@ -254,6 +245,66 @@ public class MainActivity extends BaseActivity {
         wxCircleHandler.setToCircle(true);
         wxCircleHandler.addToSocialSDK();
     }
+    
+    private void addQQQZonePlatform() {
+        String appId = "1104970571";
+        String appKey = "LZ9Iz539wfTroarQ";
+        // 添加QQ支持, 并且设置QQ分享内容的target url
+        UMQQSsoHandler qqSsoHandler = new UMQQSsoHandler(MainActivity.this,
+                appId, appKey);
+//        qqSsoHandler.setTargetUrl("http://www.umeng.com/social");
+        qqSsoHandler.addToSocialSDK();
+
+        // 添加QZone平台
+        QZoneSsoHandler qZoneSsoHandler = new QZoneSsoHandler(MainActivity.this, appId, appKey);
+        qZoneSsoHandler.addToSocialSDK();
+    }
+    
+    private void initShareData() {
+		View view = getWindow().getDecorView();
+        view.setDrawingCacheEnabled(true);
+        view.buildDrawingCache();
+        Bitmap b1 = view.getDrawingCache();        
+        Rect frame = new Rect();
+        getWindow().getDecorView().getWindowVisibleDisplayFrame(frame);
+        int statusBarHeight = frame.top;
+        int width = getWindowManager().getDefaultDisplay().getWidth();
+        int height = getWindowManager().getDefaultDisplay().getHeight();        
+        Bitmap bitmap = Bitmap.createBitmap(b1, 0, statusBarHeight, width, height
+        		- statusBarHeight);        		
+        byte[] imageDataWX = null;
+		if (bitmap != null) {
+			imageDataWX = StringUtils.bmpToByteArray(bitmap, true);
+		}
+        view.destroyDrawingCache();   
+		UMImage urlImage = new UMImage(MainActivity.this, imageDataWX);
+        CircleShareContent circleMedia = new CircleShareContent();
+        circleMedia.setShareMedia(urlImage);
+        mController.setShareMedia(circleMedia);
+        
+        WeiXinShareContent weixinContent = new WeiXinShareContent();
+        weixinContent.setShareMedia(urlImage);
+        mController.setShareMedia(weixinContent);
+        
+        // 设置QQ空间分享内容
+        QZoneShareContent qzone = new QZoneShareContent();
+//        qzone.setShareContent("share test");
+//        qzone.setTargetUrl("http://www.umeng.com");
+        qzone.setTitle("疯狂翻图");
+        qzone.setShareMedia(urlImage);
+        // qzone.setShareMedia(uMusic);
+        mController.setShareMedia(qzone);
+
+//        video.setThumb(new UMImage(getActivity(), BitmapFactory.decodeResource(
+//                getResources(), R.drawable.device)));
+
+        QQShareContent qqShareContent = new QQShareContent();
+//        qqShareContent.setShareContent("来自友盟社会化组件（SDK）让移动应用快速整合社交分享功能 -- QQ");
+        qqShareContent.setTitle("疯狂翻图");
+        qqShareContent.setShareMedia(urlImage);
+//        qqShareContent.setTargetUrl("http://www.umeng.com/social");
+        mController.setShareMedia(qqShareContent);
+	}
 
     @Override
     protected void onResume() {
