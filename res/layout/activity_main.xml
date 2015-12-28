@@ -64,7 +64,7 @@
         android:paddingTop="7dp"
         android:text="@string/main_part1"
         android:textColor="@color/title"
-        android:textSize="15sp" />
+        android:textSize="17sp" />
 
     <TextView
         android:id="@+id/partTextView2"
@@ -78,7 +78,7 @@
         android:paddingTop="7dp"
         android:text="@string/main_part2"
         android:textColor="@color/title"
-        android:textSize="15sp" />
+        android:textSize="17sp" />
 
     <ImageView
         android:id="@+id/clickImageView"
