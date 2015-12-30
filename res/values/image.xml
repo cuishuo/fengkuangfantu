@@ -2,12 +2,12 @@
 <resources>
 
     <string-array name="image_1">
-        <item>a_1</item>
-        <item>a_2</item>
-        <item>a_3</item>
-        <item>a_4</item>
-        <item>a_5</item>
-        <item>a_6</item>
+        <item>b_1</item>
+        <item>b_2</item>
+        <item>b_3</item>
+        <item>b_4</item>
+        <item>b_5</item>
+        <item>b_6</item>
     </string-array>
 
     <string-array name="image_2">
@@ -20,12 +20,12 @@
     </string-array>
 
     <string-array name="image_3">
-        <item>a_1</item>
-        <item>a_2</item>
-        <item>a_3</item>
-        <item>a_4</item>
-        <item>a_5</item>
-        <item>a_6</item>
+        <item>b_1</item>
+        <item>b_2</item>
+        <item>b_3</item>
+        <item>b_4</item>
+        <item>b_5</item>
+        <item>b_6</item>
     </string-array>
 
     <string-array name="image_4">

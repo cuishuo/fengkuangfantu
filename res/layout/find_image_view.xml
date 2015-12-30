@@ -21,7 +21,7 @@
             android:paddingRight="15dp"
             android:src="@drawable/youxi_back"
             android:contentDescription="@null" />
-        
+
         <ImageView
             android:id="@+id/youxiLogoImageView"
             android:layout_width="wrap_content"
