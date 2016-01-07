@@ -115,7 +115,6 @@ public class FindImageActivity extends BaseActivity {
         imageList.add(getResources().getStringArray(R.array.image_11));
         imageList.add(getResources().getStringArray(R.array.image_12));
         imageList.add(getResources().getStringArray(R.array.image_13));
-        imageList.add(getResources().getStringArray(R.array.image_14));
         guanNameList = getResources().getStringArray(R.array.guan_name);
         defaultImageCover = getResources().getStringArray(R.array.default_image);
         initLevel(getResources().getString(R.string.turn_image_text));

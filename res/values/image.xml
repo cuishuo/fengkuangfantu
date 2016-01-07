@@ -2,12 +2,12 @@
 <resources>
 
     <string-array name="image_1">
-        <item>dd</item>
-        <item>b_2</item>
-        <item>b_3</item>
-        <item>b_4</item>
-        <item>b_5</item>
-        <item>b_6</item>
+        <item>a_1</item>
+        <item>a_2</item>
+        <item>a_3</item>
+        <item>a_4</item>
+        <item>a_5</item>
+        <item>a_6</item>
     </string-array>
 
     <string-array name="image_2">
@@ -110,21 +110,12 @@
     </string-array>
 
     <string-array name="image_13">
-        <item>a_1</item>
-        <item>a_2</item>
-        <item>a_3</item>
-        <item>a_4</item>
-        <item>a_5</item>
-        <item>a_6</item>
-    </string-array>
-
-    <string-array name="image_14">
-        <item>a_1</item>
-        <item>a_2</item>
-        <item>a_3</item>
-        <item>a_4</item>
-        <item>a_5</item>
-        <item>a_6</item>
+        <item>m_1</item>
+        <item>m_2</item>
+        <item>m_3</item>
+        <item>m_4</item>
+        <item>m_5</item>
+        <item>m_6</item>
     </string-array>
 
     <string-array name="guan_name">
