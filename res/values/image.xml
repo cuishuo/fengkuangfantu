@@ -131,6 +131,7 @@
         <item>摩羯宫    10th</item>
         <item>水瓶宫    11th</item>
         <item>双鱼宫    12th</item>
+        <item>BOSS终极战</item>
     </string-array>
 
     <string-array name="record_guan_name">
@@ -161,6 +162,7 @@
         <item>mejie</item>
         <item>shuiping</item>
         <item>shuangyu</item>
+        <item>yadianna</item>
     </string-array>
 
 </resources>

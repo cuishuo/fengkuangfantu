@@ -36,6 +36,7 @@ import com.xiaoding.fengkuangfantu.R;
 import com.xiaoding.fengkuangfantu.adapter.FindAdapter;
 import com.xiaoding.fengkuangfantu.service.entity.FindEntity;
 import com.xiaoding.fengkuangfantu.utils.ColorUtils;
+import com.xiaoding.fengkuangfantu.utils.CrazyPreference;
 import com.xiaoding.fengkuangfantu.utils.DisplayNextView;
 import com.xiaoding.fengkuangfantu.utils.Flip3dAnimation;
 import com.xiaoding.fengkuangfantu.utils.SoundPlayer;
@@ -53,9 +54,10 @@ public class FindImageActivity extends BaseActivity {
     private int totalCount = 0;
     private int time = 0;
     private int currentLevel = 0;
+    private int successLevel = 0;
     private int progressMaxZeng = 1000 / TOTAL_INTERVAL;
     private int maxtime = 20;
-    private int levelNum = 11;
+    private int levelNum = 12;
     private int music;
     private AlertDialog alertDialog;
     private ArrayList<FindEntity> findist;
@@ -80,6 +82,7 @@ public class FindImageActivity extends BaseActivity {
     private TextView guanTextView;
     private TextView timeTextView;
     private SoundPlayer mSoundPlayer;
+    private CrazyPreference mCrazyPreference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +100,7 @@ public class FindImageActivity extends BaseActivity {
         imageList = new ArrayList<String[]>();
         soundPool = new SoundPool(10, AudioManager.STREAM_SYSTEM, 5);
         music = soundPool.load(this, R.raw.anjian, 1);
+        mCrazyPreference = new CrazyPreference(getApplicationContext());
         initViews();
         initClicks();
     }
@@ -131,13 +135,23 @@ public class FindImageActivity extends BaseActivity {
                 findAdapter.notifyDataSetChanged();
                 turnImageTextView.setTextColor(ColorUtils.getTextGrey());
                 turnImageTextView.setClickable(false);
-                soundPool.play(music, 1, 1, 0, 0, 1);
+                SharedPreferences settingsPfs = PreferenceManager
+                        .getDefaultSharedPreferences(FindImageActivity.this);
+                boolean soundsettings = settingsPfs.getBoolean("soundsettings", false);
+                if (soundsettings) {
+                    soundPool.play(music, 1, 1, 0, 0, 1);
+                }
                 mHandler.postDelayed(new Runnable() {
 
                     @Override
                     public void run() {
                         // TODO Auto-generated method stub
-                        soundPool.play(music, 1, 1, 0, 0, 1);
+                        SharedPreferences settingsPfs = PreferenceManager
+                                .getDefaultSharedPreferences(FindImageActivity.this);
+                        boolean soundsettings = settingsPfs.getBoolean("soundsettings", false);
+                        if (soundsettings) {
+                            soundPool.play(music, 1, 1, 0, 0, 1);
+                        }
                         for (int i = 0; i < findist.size(); i++) {
                             findist.get(i).setIsImageShow(true);
                         }
@@ -205,7 +219,14 @@ public class FindImageActivity extends BaseActivity {
                     } else {
                         totalCount += 2;
                         entity.setIsImageShow(false);
-                        isTurning = false;
+                        mHandler.postDelayed(new Runnable() {
+
+                            @Override
+                            public void run() {
+                                // TODO Auto-generated method stub
+                                isTurning = false;
+                            }
+                        }, 400);
                         if (totalCount == findist.size()) {
                             ToastUtil.threadShow(FindImageActivity.this,
                                     mHandler, R.string.turn_image_sucess);
@@ -214,7 +235,13 @@ public class FindImageActivity extends BaseActivity {
                             timeTextView.setVisibility(View.VISIBLE);
                             processRelativeLayout.setVisibility(View.GONE);
                             turnImageTextView.setVisibility(View.GONE);
+                            successLevel++;
+                            int record = mCrazyPreference.getValue(CrazyPreference.RECORD_PART1);
+                            if (record < successLevel) {
+                                mCrazyPreference.setValue(CrazyPreference.RECORD_PART1, successLevel);
+                            }
                             if (currentLevel == levelNum) {
+                                turnNextTextView.setText(R.string.main_part1_succeed);
                                 showNextPartAlert();
                             }
                         }
@@ -228,9 +255,7 @@ public class FindImageActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                if (currentLevel == levelNum) {
-                    gotoNextPart();
-                } else {
+                if (currentLevel < levelNum) {
                     currentLevel++;
                     turnNextTextView.setVisibility(View.GONE);
                     initLevel(getResources()

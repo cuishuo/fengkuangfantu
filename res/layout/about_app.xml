@@ -48,7 +48,6 @@
         android:layout_marginTop="15dp"
         android:text="@string/settings_about_us_content"
         android:textColor="@color/greytext"
-        android:textStyle="italic"
         android:textSize="16sp" />
 
     <TextView
