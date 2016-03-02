@@ -88,7 +88,7 @@ public class MainActivity extends BaseActivity {
         findist = new ArrayList<FindEntity>();
         initViews();
         initClicks();
-        // tartClick();
+//        tartClick();
         addWXPlatform();
         addQQQZonePlatform();
     }
@@ -317,6 +317,10 @@ public class MainActivity extends BaseActivity {
             mSoundPlayer = new SoundPlayer(this, SoundPlayer.GAME_MAIN);
             mSoundPlayer.startPlay();
         }
+        if (mHandler != null) {
+//        	mHandler.postDelayed(timerRunnable, REPET_INTERVAL);
+        	tartClick();
+		}
     }
 
     @Override
@@ -326,6 +330,12 @@ public class MainActivity extends BaseActivity {
             mSoundPlayer.stopPlay();
             mSoundPlayer = null;
         }
+        if (mHandler != null) {
+        	animation.cancel();
+        	showDefault(coverFramlayout, defaultImageView, true);
+        	mHandler.removeCallbacks(timerRunnable);        	
+        	time = RETRY_INTERVAL;
+		}
         super.onPause();
     }
 
